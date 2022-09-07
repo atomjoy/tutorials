@@ -1,2 +1,2 @@
-# tutorials
-Przykłady programowanie.
+# Tutorials
+Atomjoy przykłady i tutoriale. 
