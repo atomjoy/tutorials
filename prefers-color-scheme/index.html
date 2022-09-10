@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Change color theme</title>
+
+	<style>
+		:root {
+			--bg: #fff;
+			--btn: #0099ff;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--bg: #0099ff;
+				--btn: #fff;
+			}
+		}
+
+		[color-scheme="light"] {			
+			color-scheme: light;
+			--bg: #fff;
+			--btn: #0099ff;
+		}
+
+		[color-scheme="dark"] {
+			color-scheme: dark;
+			--bg: #0099ff;
+			--btn: #fff;
+		}
+
+		html {
+			background-color: var(--bg);			
+		}
+
+		button {
+			color: var(--btn);			
+			border: 2px solid var(--btn);
+			padding: 10px 45px;
+			border-radius: 6px;
+			cursor: pointer;
+			background: transparent;
+		}
+	</style>
+
+	<script>
+		var theme = null;
+
+		window.onload = () => {
+			theme = preferedTheme()
+			document.querySelector('#theme-toggle')?.addEventListener('click', changeTheme)
+		}
+
+		function preferedTheme() {
+			return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+		}
+
+		function changeTheme() {		
+			theme = theme === 'light' ? 'dark' : 'light'
+			document.firstElementChild.setAttribute('color-scheme', theme)
+			console.log("Change theme", theme);
+		}
+	</script>
+</head>
+<body>
+	<button id="theme-toggle"> Change Theme </button>	
+</body>
+</html>
