@@ -14,3 +14,7 @@ Przykłady w html, css, js
 ### Animacja falowanego tekstu w CSS z clip-path
 - Katalog: text-clip-path-wave
 - https://atomjoy.github.io/tutorials/text-clip-path-wave
+
+### Css tęczowy tekst, tło i ramka
+- Katalog: rainbow-text-border
+- https://atomjoy.github.io/tutorials/rainbow-text-border
