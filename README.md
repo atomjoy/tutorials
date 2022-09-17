@@ -13,4 +13,4 @@ Atomjoy przykłady i tutoriale.
 
 ### Animacja falowanego tekstu w CSS z clip-path
 - Katalog: text-clip-path-wave
-- https://atomjoy.github.io/tree/main/tutorials/text-clip-path-wave
+- https://atomjoy.github.io/tutorials/text-clip-path-wave
