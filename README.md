@@ -18,3 +18,7 @@ Przykłady w html, css, js
 ### Css tęczowy tekst, tło i ramka
 - Katalog: rainbow-text-border
 - https://atomjoy.github.io/tutorials/rainbow-text-border
+
+### Okrągły pasek postępu css, js, html
+- Katalog: circle-progress-bar
+- https://atomjoy.github.io/tutorials/circle-progress-bar
