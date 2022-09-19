@@ -22,3 +22,8 @@ Przykłady w html, css, js
 ### Okrągły pasek postępu css, js, html
 - Katalog: circle-progress-bar
 - https://atomjoy.github.io/tutorials/circle-progress-bar
+
+
+### Okrągły pasek postępu svg, css, js, html
+- Katalog: circle-progress-bar-svg
+- https://atomjoy.github.io/tutorials/circle-progress-bar-svg
