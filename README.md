@@ -28,6 +28,10 @@ Przykłady w html, css, js
 - Katalog: circle-progress-bar-svg
 - https://atomjoy.github.io/tutorials/circle-progress-bar-svg
 
+### Okrągły pasek postępu svg mask path, css, js, html
+- Katalog: circle-progress-bar-svg-path
+- https://atomjoy.github.io/tutorials/circle-progress-bar-svg-path
+
 ### Animowany gradient stożkowy css svg
 - Katalog: animate-cone-gradient-svg
 - https://atomjoy.github.io/tutorials/animate-cone-gradient-svg
