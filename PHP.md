@@ -41,16 +41,13 @@ Route::get('/ex', function () {
 		// Invalid column
 		User::create(['xxx' => 123]);
 	} catch (OpenPayU_Exception $e | SmsApi_Exception $e) {
-  		report($e);
 		Log::error($e->getMessage());
 		throw new Exception($e->getMessage(), 422);
 	} catch (PDOException $e) {
   		report($e);
-		Log::error($e->getMessage());
 		throw new Exception('Databse error', 422);
 	} catch (Exception $e) {
 		report($e);
-		Log::error($e->getMessage());
 		throw new Exception('Regular error', 422);
 	}
 });
