@@ -1,6 +1,32 @@
 # Php
 Proste przykłady w php
 
+## Ignore ErrorException
+
+### Ignore undefined key
+```php
+<?php
+$a = [];
+// Error
+echo $a[0];
+// No error with @ or ??
+echo @$a[0];
+echo $a[0] ?? null;
+```
+
+### Ignore undefined property
+```php
+<?php
+$o = (object) [];
+// Error undefined property
+echo $o->b; 
+// No error with @ or ??
+echo @$o->a; 
+echo @$o->a->b;
+echo $o->a ?? null;
+echo $o->a->b ?? null;
+```
+
 ## Exceptions
 Zaimportuj klasy Exception, PDOException, ... jeżeli potrzeba.
 
