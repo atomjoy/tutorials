@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 ```
 
-### InstanceOf
+### Mysql Instanceof
 ```php
 Route::get('/', function () {
 	try {
