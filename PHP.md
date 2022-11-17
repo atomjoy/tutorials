@@ -2,13 +2,20 @@
 Proste przykłady w php
 
 ## Exceptions
+Zaimportuj klasy Exception, PDOException, ... jeżeli potrzeba.
 
-### Multiple catch
+### Multiple Exception
 ```php
-Route::get('/', function () {
+use Illuminate\Support\Facades\Route;
+use App\Models\User;
+
+Route::get('/ex', function () {
 	try {
 		// Invalid column
-		PayuLog::create(['xxx' => 123]);
+		User::create(['xxx' => 123]);
+	} catch (OpenPayU_Exception $e | SmsApi_Exception $e) {
+  		report($e);
+		throw new Exception($e->getMessage(), 422);
 	} catch (PDOException $e) {
   		report($e);
 		throw new Exception('Databse error', 422);
@@ -21,12 +28,15 @@ Route::get('/', function () {
 });
 ```
 
-### Mysql Instanceof
+### Mysql Exception with instanceof
 ```php
-Route::get('/', function () {
+use Illuminate\Support\Facades\Route;
+use App\Models\User;
+
+Route::get('/ex', function () {
 	try {
 		// Invalid column
-		PayuLog::create(['xxx' => 123]);
+		User::create(['xxx' => 123]);
 	} catch (Exception $e) {
 		report($e);
 
