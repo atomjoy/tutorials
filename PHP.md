@@ -9,7 +9,7 @@ Route::get('/', function () {
 		// Invalid column
 		PayuLog::create(['xxx' => 123]);
 	} catch (PDOException $e) {
-  	report($e);
+  		report($e);
 		throw new Exception('Databse error', 422);
 	} catch (Exception $e) {
 		report($e);
