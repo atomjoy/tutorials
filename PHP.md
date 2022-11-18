@@ -13,8 +13,10 @@ function toCents(float $decimal): int
 	if (!preg_match('/^\d+(\.\d{1,2})?$/', $decimal)) {
 		throw new Exception("Invalid decimal value", 422);
 	}
-
-	return number_format($decimal, 2, '.', '') * 100;
+	
+	return ($decimal * 100);
+	
+	// return number_format($decimal, 2, '.', '') * 100;
 }
 ```
 
