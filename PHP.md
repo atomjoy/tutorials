@@ -1,6 +1,23 @@
 # Php
 Proste przykłady w php
 
+## Php zamiana złotych na grosze w payu
+```php
+<?php
+function toCents(float $decimal)
+{
+	if ($decimal < 0.01) {
+		throw new Exception("Minimal decimal value: 0.01", 422);
+	}
+
+	if (!preg_match('/^\d+\.\d{1,2}$/', $decimal)) {
+		throw new Exception("Invalid decimal value: " . $decimal, 422);
+	}
+
+	return number_format($decimal, 2, '.', '') * 100;
+}
+```
+
 ## Ignore ErrorException
 
 ### Ignore undefined key
