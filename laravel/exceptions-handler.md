@@ -43,7 +43,8 @@ class Handler extends ExceptionHandler
 	protected $dontFlash = [
 		'current_password',
 		'password',
-		'password_confirmation'
+		'password_confirmation',
+		'remember_token'
 	];
 
 	/**
@@ -53,16 +54,12 @@ class Handler extends ExceptionHandler
 	 */
 	public function register()
 	{
-		$this->reportable(function (Throwable $e) {
-			//
-		});
-
 		$this->renderable(function (Throwable $e, $request) {
-			// Change "ServerError" when debug=false to a json message
+			// Change "ServerError" Exception when app_debug=false to a json message
 			if (
-				$request->is('web/api/*') ||
+				$request->wantsJson() ||
 				$request->is('api/*') ||
-				$request->wantsJson()
+				$request->is('web/*')
 			) {
 				$message = $e->getMessage();
 
@@ -70,9 +67,26 @@ class Handler extends ExceptionHandler
 					$message = 'Database error.';
 				}
 
-				$data = ['message' => !empty($e->getMessage()) ? $message : 'Unknown Exception.'];
+				$message = empty($message) ? 'Unknown Exception.' : $message;
 
-				$status = ($e->getCode() >= 100 && $e->getCode() < 600) ? $e->getCode() : 422;
+				$status = ($e->getCode() >= 100 && $e->getCode() <= 599) ? $e->getCode() : 422;
+
+				if ($e instanceof AuthenticationException) {
+					$status = 401;
+				}
+
+				if ($e instanceof NotFoundHttpException) {
+					$message = 'Not Found.';
+				}
+
+				if (config('webi.settings.translate_response') == true) {
+					$this->refreshLocale($request);
+					$message = trans($message);
+				}
+
+				$data['message'] = $message;
+				$data['code'] = $status;
+				$data['data'] = null;
 
 				if (config('app.debug')) {
 					$data['error'] = [
@@ -86,6 +100,15 @@ class Handler extends ExceptionHandler
 				return response()->json($data, $status, [], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 			}
 		});
+	}
+
+	function refreshLocale($request)
+	{
+		$lang =  session('locale', config('app.locale'));
+		app()->setLocale($lang);
+		if ($request->has('locale')) {
+			app()->setLocale($request->query('locale'));
+		}
 	}
 }
 ```
