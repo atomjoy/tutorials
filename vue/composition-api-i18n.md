@@ -83,3 +83,9 @@ import Title from '@/components/PageTitle.vue'
 	<p>{{ $t('error404.message') }}</p>
 </template>
 ```
+
+## Linki
+```sh
+https://vue-i18n.intlify.dev/guide/migration/vue3.html#migration-in-vue-3
+https://vue-i18n.intlify.dev/guide/advanced/composition.html#message-translation
+```
