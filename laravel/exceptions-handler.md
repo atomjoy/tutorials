@@ -73,11 +73,9 @@ class WebiHandler extends ExceptionHandler
 	public function register()
 	{
 		$this->renderable(function (Throwable $e, $request) {
-			// Change "ServerError" Exception when app_debug=false to a json message
-			if (
-				$request->is('web/api/*') ||
-				$request->wantsJson()
-			) {
+			// Można dodać: || $request->wantsJson()
+			// Tylko dla routes /web/api/*			
+			if ($request->is('web/api/*') ) {
 				$alert = 'error';
 				$message = $e->getMessage();
 				
