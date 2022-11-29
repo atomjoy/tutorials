@@ -39,7 +39,7 @@ app.use(i18n)
 ```
 
 ### Zmiana tytułu strony www w Vue3 composition api setup
-components/PageTitle.vue
+components/PageTitleComposition.vue
 ```vue
 <template></template>
 <script setup>
