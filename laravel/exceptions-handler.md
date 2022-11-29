@@ -1,5 +1,5 @@
 # Laravel Json Api Exceptions Handler
-Przechwytywanie wyjątków, błędów w laravelu z json response w web api z walidcją w Requests.
+Przechwytywanie wyjątków, błędów w laravelu z json response w web api z walidacją w Requests.
 
 
 ## Utwórz klasę exception
