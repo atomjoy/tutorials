@@ -20,7 +20,7 @@ class WebException extends Exception
 ```php
 <?php
 
-namespace Webi\Exceptions;
+namespace App\Exceptions;
 
 use Throwable;
 use PDOException;
@@ -32,7 +32,7 @@ use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use App\Exceptions\WebException;
 
-class WebiHandler extends ExceptionHandler
+class Handler extends ExceptionHandler
 {
 	/**
 	 * A list of exception types with their corresponding custom log levels.
