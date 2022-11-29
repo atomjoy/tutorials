@@ -30,7 +30,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Webi\Exceptions\WebiException;
+use App\Exceptions\WebException;
 
 class WebiHandler extends ExceptionHandler
 {
