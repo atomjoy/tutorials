@@ -1,11 +1,26 @@
-# Laravel Json Exceptions Handler
-Jak zmienić błąd "ServerError" w Laravel response na json response gdy debug=false dla rest api z walidacją przez requests.
+# Laravel Json Api Exceptions Handler
+Przechwytywanie wyjątków, błędów w laravelu z json response w web api z walidcją w Requests.
 
-## Zmień plik app/Exceptions/Handler.php
+
+## Utwórz klasę exception
+Błędy wyrzucane z tą klasą będą miały kod status http 200, co pozwala na wyświetlanie gdy debug ustawiony jest na false w .env (debug=false).
 ```php
 <?php
 
 namespace App\Exceptions;
+
+use Exception;
+
+class WebException extends Exception
+{
+}
+```
+
+## Dodaj w pliku app/Exceptions/Handler.php
+```php
+<?php
+
+namespace Webi\Exceptions;
 
 use Throwable;
 use PDOException;
@@ -13,9 +28,11 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Support\Arr;
 use Illuminate\Database\QueryException;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Webi\Exceptions\WebiException;
 
-class Handler extends ExceptionHandler
+class WebiHandler extends ExceptionHandler
 {
 	/**
 	 * A list of exception types with their corresponding custom log levels.
@@ -44,7 +61,8 @@ class Handler extends ExceptionHandler
 		'current_password',
 		'password',
 		'password_confirmation',
-		'remember_token'
+		'remember_token',
+		'code',
 	];
 
 	/**
@@ -57,39 +75,55 @@ class Handler extends ExceptionHandler
 		$this->renderable(function (Throwable $e, $request) {
 			// Change "ServerError" Exception when app_debug=false to a json message
 			if (
-				$request->wantsJson() ||
-				$request->is('api/*') ||
-				$request->is('web/*')
+				$request->is('web/api/*') ||
+				$request->wantsJson()
 			) {
+				$alert = 'error';
 				$message = $e->getMessage();
-
+				
+				// Wszystkie exceptions
+				$message = empty($message) ? 'Unknown Exception.' : $message;
+				$status = $this->validCode($e) ? $e->getCode() : 422;
+				
+				// Błędy mysql w logach
 				if ($e instanceof QueryException || $e instanceof PDOException) {
+					$status = 500;
+					$alert = 'error';
 					$message = 'Database error.';
 				}
-
-				$message = empty($message) ? 'Unknown Exception.' : $message;
-
-				$status = ($e->getCode() >= 100 && $e->getCode() <= 599) ? $e->getCode() : 422;
+				
+				// Powiadomienia aplikacji, walidacja formularzy, wszystko to co musi zobaczyć użytkownik api ze statusem http 200
+				if ($e instanceof WebException) {
+					$status = 200;
+					$alert = 'danger';
+				}
 
 				if ($e instanceof AuthenticationException) {
-					$status = 401;
+					$status = 200;
+					$alert = 'danger';
+				}
+
+				if ($e instanceof ValidationException) {
+					$status = 200;
+					$alert = 'danger';
 				}
 
 				if ($e instanceof NotFoundHttpException) {
+					$status = 200;
+					$alert = 'danger';
 					$message = 'Not Found.';
 				}
 
 				if (config('webi.settings.translate_response') == true) {
-					$this->refreshLocale($request);
+					$this->updateLocale($request);
 					$message = trans($message);
 				}
 
-				$data['message'] = $message;
-				$data['code'] = $status;
-				$data['data'] = null;
+				$data['alert'] = ['message' => $message, 'type' => $alert,];
+				$data['bag'] = null;
 
 				if (config('app.debug')) {
-					$data['error'] = [
+					$data['debug'] = [
 						'exception' => get_class($e),
 						'file' => $e->getFile(),
 						'line' => $e->getLine(),
@@ -102,7 +136,12 @@ class Handler extends ExceptionHandler
 		});
 	}
 
-	function refreshLocale($request)
+	/**
+	 * Refresh session locale.
+	 *
+	 * @return void
+	 */
+	public function updateLocale($request)
 	{
 		$lang =  session('locale', config('app.locale'));
 		app()->setLocale($lang);
@@ -110,5 +149,36 @@ class Handler extends ExceptionHandler
 			app()->setLocale($request->query('locale'));
 		}
 	}
+
+	/**
+	 * Http codes validation.
+	 *
+	 * @return bool
+	 */
+	public function validCode($e)
+	{
+		return ($e->getCode() >= 100 && $e->getCode() <= 599) ? true : false;
+	}
 }
 ```
+
+## Alerty
+Handler zwraca alerty (success, danger, error)
+- **success** - Potwierdzenie działania ... http code 200, 201
+- **danger** - Niepoprawne dane np. logowania z formularza ... http code 200
+- **error** - Błąd serwera aplikacji database error, php error ... http code 500, 400, 401, 422 z throw new Exceptions()
+
+### Błąd z kontrolera
+```php
+throw new WebException('Invalid credentials', 422);
+```
+
+### Json response http status 200
+```json
+{
+	"alert": [
+		"message": "Invalid credentials",
+		"type": 'danger'
+	],
+	"bag": null
+}
