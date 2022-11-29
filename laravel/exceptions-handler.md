@@ -1,5 +1,5 @@
-# Laravel Json Api Exceptions Handler
-Przechwytywanie wyjątków, błędów w laravelu z json response w web api z walidacją w Requests.
+# Laravel Web Api Json Exceptions Handler
+Przechwytywanie wyjątków, błędów w Laravel z json response w web api z walidacją w Requests.
 
 
 ## Utwórz klasę exception
@@ -171,7 +171,7 @@ Handler zwraca alerty (success, danger, error)
 throw new WebException('Invalid credentials', 422);
 ```
 
-### Json response http status 200
+### Wyświetli json response http status 200
 ```json
 {
 	"alert": [
@@ -180,3 +180,51 @@ throw new WebException('Invalid credentials', 422);
 	],
 	"bag": null
 }
+```
+
+## Przykład klasy walidacji form request
+```php
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Foundation\Http\FormRequest;
+use App\Exceptions\WebException;
+
+class WebLoginRequest extends FormRequest
+{
+	protected $stopOnFirstFailure = true;
+
+	public function authorize()
+	{
+		return true; // Allow all
+	}
+
+	public function rules()
+	{
+		$email = 'email:rfc,dns';
+		if (env('APP_DEBUG') == true) {
+			$email = 'email';
+		}
+
+		return [
+			'email' => ['required', $email, 'max:191'],
+			'password' => 'required|min:11',
+			'remember_me' => 'sometimes|boolean'
+		];
+	}
+	
+	public function failedValidation(Validator $validator)
+	{
+		throw new WebException($validator->errors()->first()); // To jest istotne !!!
+	}
+
+	function prepareForValidation()
+	{
+		$this->merge(
+			collect(request()->json()->all())->only(['email', 'password', 'remember_me'])->toArray()
+		);
+	}
+}
+```
