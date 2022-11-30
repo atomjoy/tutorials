@@ -91,3 +91,16 @@ export default {
   opacity: 1;
 }
 </style>
+
+<!-- 
+// v-model => remember_me = true
+<Checkbox :label="$t('login.Remember_me')" value="1" v-model="remember_me" name="remember_me" />
+
+// v-model => list = ['baz1', 'baz2']
+<Checkbox label="Baz1" value="baz1" v-model="list" />
+<Checkbox label="Baz2" value="baz2" v-model="list" />
+<Checkbox label="Baz3" value="baz3" v-model="list" /> 
+
+// Show with
+<p>Checked: {{ list }}</p>
+-->
