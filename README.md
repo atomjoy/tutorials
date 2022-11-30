@@ -3,6 +3,10 @@ Przykłady w html, css, js
 
 # Przykłady
 
+### Wyświetlanie i ukrywanie elementów przy przewijaniu strony
+- Katalog: show-on-scroll
+- https://atomjoy.github.io/tutorials/show-on-scroll
+
 ### Zmiana koloru motywu strony www 
 - Katalog: prefers-color-scheme 
 - https://atomjoy.github.io/tutorials/prefers-color-scheme
