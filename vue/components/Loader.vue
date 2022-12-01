@@ -16,7 +16,7 @@
 	width: 80px;
 	height: 80px;
 	padding: 5px;
-	background: var(--bg);
+	background: #fff;
 	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 	box-sizing: border-box;
 	border-radius: 100%;
@@ -29,8 +29,8 @@
 	border-radius: 100%;
 	background: transparent;
 	border: 6px solid transparent;
-	border-left: 6px solid var(--color);
-	border-right: 6px solid var(--color);
+	border-left: 6px solid #09f;
+	border-right: 6px solid #09f;
 	animation: rotate 0.5s linear infinite;
 	box-sizing: border-box;
 }
