@@ -66,7 +66,7 @@ export default {
   width: 30px;
   height: 30px;
   margin-right: 15px;
-  border: 2px solid var(--color);
+  border: 2px solid #07f;
   border-radius: 50%;
   z-index: 3;
 }
@@ -77,15 +77,15 @@ export default {
   width: 30px;
   height: 30px;
   padding: 5px;
-  background: var(--color-vue);
+  background: #07f;
   border-radius: 50%;
-  border: 2px solid var(--color-vue);
+  border: 2px solid #07f;
   text-align: center;
   z-index: 1;
 }
 .checkbox-line .checkbox:checked + .checkmark {
   border: transparent;
-  box-shadow: 0px 0px 0px 5px var(--color-shadow);
+  box-shadow: 0px 0px 0px 5px #0077ff33;
 }
 .checkbox-line .checkbox:checked + .checkmark .dot {
   opacity: 1;
@@ -93,6 +93,13 @@ export default {
 </style>
 
 <!-- 
+// Import fontawesome icon v5.10 in html head tag
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+// Variable setup
+const remember_me = ref(false)
+const list = ref([])
+
 // v-model => remember_me = true
 <Checkbox :label="$t('login.Remember_me')" value="1" v-model="remember_me" name="remember_me" />
 
