@@ -44,7 +44,7 @@ onUnmounted(() => {
 			<div>{{ h }} px</div>
 		</div>
 		<div>
-			<div>Device + Browser zoom:</div>
+			<div>System zoom + Browser zoom:</div>
 			<div>{{ z }} %</div>
 		</div>
 	</div>
