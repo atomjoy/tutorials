@@ -1,4 +1,5 @@
-# Uuid zamiast auto-increment id w Laravelu
+# Laravel uuid zamiast auto-increment id
+Uuid jako klucz główny zamiast auto-increment id w Laravelu.
 
 ### Utwórz trait
 Automatyczne tworzyenie uuid klucza.
