@@ -8,6 +8,20 @@ php artisan make:resource DayResource
 php artisan make:resource DayCollection
 ```
 
+### Route resource
+```php
+Route::prefix('food')->name('food')->middleware(['web'])->group(function () {
+  // Path: /food/day/{day}
+  Route::resource('day', DayController::class);
+  
+  // Path: /food/day/{cool_day}
+  Route::resource('day', DayController::class)->parameters(['day' => 'cool_day']);
+  
+  // Ignore routes with ->except() lub ->only()
+  Route::resource('day', DayController::class)->except(['create', 'edit']);
+});
+```
+
 ### Reguły w FormRequest
 Sprawdzaj wszystkie wiersze tabeli (defaultowo).
 ```php
@@ -39,3 +53,54 @@ https://laravel.com/api/8.x/Illuminate/Validation/Rules/Unique.html
 ->whereNull('deleted_at') - Ignore rows where deleted_at != null
 ->orWhereNotNull('deleted_at'); - Ignore rows where deleted_at == null
 ```
+
+### Kontroler resource
+```php
+public function index()
+{
+  $search = "" . app()->request->input('search');
+
+  $a = Day::where(
+    DB::raw("CONCAT_WS(' ','number', 'closed')"), 'regexp', str_replace(" ", "|", $search)
+  )->orderBy("id", 'desc')->simplePaginate($this->perpage())->withQueryString();
+
+  return $this->jsonResponse("Days", [
+    'days' => $a
+  ]);
+}
+  
+public function store(StoreDayRequest $request)
+{
+  $v = $request->validated();
+  $v['deleted_at'] = NULL;
+  Day::withTrashed()->updateOrCreate([
+    'number' => $v['number']
+  ], $v);
+
+  return $this->jsonResponse("The day has been created");
+}
+
+public function update(UpdateDayRequest $request, Day $day)
+{
+  $v = $request->validated();
+  $day->fill($v);
+  $day->save();
+
+  return $this->jsonResponse("The day has been updated");
+}
+
+public function show(Day $day)
+{
+  return $this->jsonResponse("Day", [
+    'day' => new DayResource($day)
+  ]);
+}
+  
+public function destroy(Day $day)
+{
+  $day->delete(); // Or permanently ->forceDelete();
+
+  return $this->jsonResponse("The day has been deleted");
+}
+```
+
