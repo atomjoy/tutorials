@@ -104,3 +104,43 @@ public function destroy(Day $day)
 }
 ```
 
+### Przykład walidacji z query
+```php
+public function rules()
+{
+  $rid = request('restaurant_id');
+  $pid = request('product_id');
+
+  return [
+    // uniques
+    'restaurant_id' => 'required',
+    'product_id' => 'required', 
+    'size' => 'required',
+    
+    // columns
+    'price' => 'required|numeric|gte:0|regex:/^-?[0-9]+(?:.[0-9]{1,2})?$/',
+    
+    // StoreRequest
+    'size' => [
+      'required',
+      Rule::unique('variants')->where(function ($query) use ($rid, $pid) {
+        return $query->where('restaurant_id', $rid)
+          ->where('restaurant_id', $rid)
+          ->where('product_id', $pid)
+          ->whereNull('deleted_at'); // Without trashed rows
+      })
+    ],
+    
+    // UpdateRequest
+    'size' => [
+      'required',
+      Rule::unique('variants')->ignore($this->route('variant'))->where(function ($query) use ($rid, $pid) {
+        return $query->where('restaurant_id', $rid)
+          ->where('restaurant_id', $rid)
+          ->where('product_id', $pid)
+          ->whereNull('deleted_at'); // Without trashed rows
+      })
+    ],
+  ];
+}
+```
