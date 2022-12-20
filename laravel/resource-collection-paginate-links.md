@@ -1,4 +1,5 @@
-# Niestandardowe linki w kolekcjach Laravela
+# Niestandardowe linki w kolekcjach Laravel
+Stronicowanie kolekcji zasobów w Laravel.
 
 ### Product Kontroler
 ```php
