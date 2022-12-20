@@ -1,4 +1,4 @@
-# Niestandardowe linki w kolekcjach laravela
+# Niestandardowe linki w kolekcjach Laravela
 
 ### Product Kontroler
 ```php
@@ -18,7 +18,7 @@ class ProductController extends Controller
 
     $a = Product::where(DB::raw("CONCAT_WS(' ','name','slug','about')"), 'regexp', str_replace(" ", "|", $search))
       ->orderBy("id", 'desc')
-      ->paginate($this->perpage())
+      ->paginate($this->perpage()) // Koniecznie paginate
       ->withQueryString();
 
     return $this->jsonResponse("Products", new ProductCollection($a));
@@ -40,7 +40,15 @@ class ProductCollection extends ResourceCollection
 			'data' => ProductResource::collection($this->collection),
 			'links' => $this->resource->withQueryString()->linkCollection(),
 			'meta' => [
-				'count' => $this->collection->count()
+				'count' => $this->collection->count(),
+				'current_page' => $this->resource->currentPage(),
+				'prev_page' => $this->resource->previousPageUrl(),
+				'next_page' => $this->resource->nextPageUrl(),
+				'on_first_page' => $this->resource->onFirstPage(),
+				'on_last_page' => $this->resource->onLastPage(),
+				'last_page' => $this->resource->lastPage(),
+				'perpage' => $this->resource->perPage(),
+				'total' => $this->resource->total(),
 			]
 		];
 	}
