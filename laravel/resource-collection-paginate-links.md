@@ -94,3 +94,6 @@ trait HasJsonResponse
 	}
 }
 ```
+
+### Klasa paginatora
+https://laravel.com/api/9.x/Illuminate/Pagination/LengthAwarePaginator.html
