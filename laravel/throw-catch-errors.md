@@ -15,16 +15,16 @@ class ApiException extends Exception
 {
 	public function render($request)
 	{
-    // Show api errors from this exception as json string with code 422
+		// Show api errors from this exception as json string with code 422
 		return response()->json([
 			'success' => false,
 			'message' => $this->getMessage(),
 		], $this->getCode());
 	}
   
-  public function report()
+	public function report()
 	{
-    // Disable error reporting 
+		// Disable error reporting 
 		// return false; 
 	}
 }
@@ -34,7 +34,7 @@ class ApiException extends Exception
 ```php
 <?php
 Route::get('/api/error', function () {
-  throw new ApiException("Invalid api data", 422);
+	  throw new ApiException("Invalid api data", 422);
 });
 ```
 
@@ -52,7 +52,7 @@ use Closure;
  *
  * Add middleware in App\Http\Kernel.php
  * protected $routeMiddleware = [
- * 		'web-json' => \App\Http\Middleware\WebJsonResponse::class,
+ * 	'web-json' => \App\Http\Middleware\WebJsonResponse::class,
  * ]
  */
 class WebJsonResponse
@@ -69,14 +69,14 @@ class WebJsonResponse
 ```php
 <?php
 Route::get('/web/error', function () {
-  throw new \Exception("Invalid api data", 422);
+	  throw new \Exception("Invalid api data", 422);
 })->middleware(['web-json']);
 
 Route::prefix('web')->name('web')->middleware(['web', 'web-json'])->group(function () {
-  // Routes here
-  Route::get('/err', function () {
-    throw new \Exception("Invalid api data err", 422);
-  });
+	// Routes here
+	Route::get('/err', function () {
+		throw new \Exception("Invalid api data err", 422);
+	});
 });
 ```
 
@@ -97,12 +97,12 @@ class Handler extends ExceptionHandler
 		$this->reportable(function (Throwable $e) {
 			//
 		});
-    
-    // Return json response with code 422 with WebJsonResponse middleware
+
+		// Return json response with code 422 with WebJsonResponse middleware
 		$this->renderable(function (Throwable $e, $request) {      
-      // If client accept application/json header
+			// If client accept application/json header
 			if ($request->wantsJson() || $request->is('web/api/*')) {
-        // return json string
+				// return json string
 				return response()->json([
 					'success' => false,
 					'message' => $e->getMessage()
@@ -122,28 +122,29 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\ServiceProvider;
  
 class AppServiceProvider extends ServiceProvider
-{    public function boot()
-    {
-        Response::macro('success', function ($msg, $code = 200) {
-          return response()->json([
-            'success' => false,
-            'message' => $msg
-          ], $code);
-        });
-        
-        Response::macro('error', function ($msg, $code = 422) {
-          return response()->json([
-            'success' => false,
-            'message' => $msg
-          ], $code);
-        });
-    }
+{
+	public function boot()
+	{
+		Response::macro('success', function ($msg, $code = 200) {
+			return response()->json([
+				'success' => false,
+				'message' => $msg
+			], $code);
+		});
+
+		Response::macro('error', function ($msg, $code = 422) {
+			return response()->json([
+				'success' => false,
+				'message' => $msg
+			], $code);
+		});
+	}
 }
 ```
 
 ### Użyj makro
 ```php
 Route::get('/err', function () {
-  return response()->success("Account has been created");
+	  return response()->success("Account has been created");
 });
 ```
