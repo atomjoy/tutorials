@@ -33,7 +33,7 @@ class ApiException extends Exception
 ### Wywołanie exception
 ```php
 <?php
-Route::get('/api/error', function () {
+Route::get('/web/error', function () {
 	  throw new ApiException("Invalid api data", 422);
 });
 ```
