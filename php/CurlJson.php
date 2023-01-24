@@ -4,7 +4,7 @@ namespace App\Curl;
 
 class CurlJson
 {
-	static function post(array $data, $url)
+	static function post(array $data, $url, $secure = true)
 	{
 		$cookie = '/tmp/curl_cookie.txt';
 		$data = json_encode($data);
@@ -17,8 +17,8 @@ class CurlJson
 			'Content-Length: ' . strlen($data)),
       			'Accept: application/json'
 		);
-		curl_setopt($c, CURLOPT_SSL_VERIFYHOST,false);
-		curl_setopt($c, CURLOPT_SSL_VERIFYPEER,false);
+		curl_setopt($c, CURLOPT_SSL_VERIFYHOST,$secure);
+		curl_setopt($c, CURLOPT_SSL_VERIFYPEER,$secure);
 		curl_setopt($c, CURLOPT_COOKIEJAR, $cookie);
 		curl_setopt($c, CURLOPT_COOKIEFILE, $cookie);
 		$res = curl_exec($c);
@@ -26,13 +26,13 @@ class CurlJson
 		return $res;
 	}
 
-	static function get(array $data, $url)
+	static function get(array $data, $url, $secure = true)
 	{
 		$cookie = '/tmp/curl_cookie.txt';
 		$c = curl_init($url.'?'.http_build_query($data));
 		curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($c, CURLOPT_SSL_VERIFYHOST,false);
-		curl_setopt($c, CURLOPT_SSL_VERIFYPEER,false);
+		curl_setopt($c, CURLOPT_SSL_VERIFYHOST,$secure);
+		curl_setopt($c, CURLOPT_SSL_VERIFYPEER,$secure);
 		curl_setopt($c, CURLOPT_COOKIEJAR, $cookie);
 		curl_setopt($c, CURLOPT_COOKIEFILE, $cookie);
     		curl_setopt($c, CURLOPT_HTTPHEADER, array(
