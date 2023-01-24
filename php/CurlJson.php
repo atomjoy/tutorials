@@ -15,7 +15,7 @@ class CurlJson
 		curl_setopt($c, CURLOPT_HTTPHEADER, array(
 			'Content-Type: application/json',
 			'Content-Length: ' . strlen($data)),
-      'Accept: application/json'
+      			'Accept: application/json'
 		);
 		curl_setopt($c, CURLOPT_SSL_VERIFYHOST,false);
 		curl_setopt($c, CURLOPT_SSL_VERIFYPEER,false);
@@ -35,8 +35,8 @@ class CurlJson
 		curl_setopt($c, CURLOPT_SSL_VERIFYPEER,false);
 		curl_setopt($c, CURLOPT_COOKIEJAR, $cookie);
 		curl_setopt($c, CURLOPT_COOKIEFILE, $cookie);
-    curl_setopt($c, CURLOPT_HTTPHEADER, array(
-      'Accept: application/json'
+    		curl_setopt($c, CURLOPT_HTTPHEADER, array(
+      			'Accept: application/json'
 		);
 		$res = curl_exec($c);
 		self::error($c, $res);
