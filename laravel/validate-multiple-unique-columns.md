@@ -44,6 +44,16 @@ $day = $this->route('day');
 
 // UpdateDayRequest - Ignorowanie sprawdzania istniejących modeli w tabeli podczas aktualizacji
 'number' => Rule::unique('days', 'restaurant_id')->whereNull('deleted_at')->orWhereNotNull('deleted_at');
+
+// Password validation
+'password_current' => 'required',
+'password' => [
+  'required',
+  Password::min(11)->letters()->mixedCase()->numbers()->symbols(),
+  'confirmed',
+  'max:50',
+],
+'password_confirmation' => 'required',
 ```
 
 ### Inne metody
@@ -142,5 +152,63 @@ public function rules()
       })
     ],
   ];
+}
+```
+
+### Przykład Request form validation
+```php
+<?php
+
+namespace Webi\Http\Requests;
+
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Password;
+use Webi\Exceptions\WebiException;
+use Illuminate\Http\Exceptions\HttpResponseException;
+
+class WebiRegisterRequest extends FormRequest
+{
+  protected $stopOnFirstFailure = true;
+
+	public function authorize()
+	{
+		return true; // Allow all
+	}
+
+	public function rules()
+	{
+		$email = 'email:rfc,dns';
+		if (env('APP_DEBUG') == true) {
+			$email = 'email';
+		}
+
+		return [
+			'name' => 'required|min:3|max:50',
+			'email' => [
+				'required', $email, 'max:191',
+				Rule::unique('users')->whereNull('deleted_at')
+			],
+			'password' => [
+				'required',
+				Password::min(11)->letters()->mixedCase()->numbers()->symbols(),
+				'confirmed',
+				'max:50',
+			],
+			'password_confirmation' => 'required'
+		];
+	}
+
+	public function failedValidation(Validator $validator)
+	{
+		throw new WebiException($validator->errors()->first());
+	}
+
+	function prepareForValidation()
+	{
+		$this->merge(
+			collect(request()->json()->all())->only(['name', 'email', 'password', 'password_confirmation'])->toArray()
+		);
+	}
 }
 ```
