@@ -1,4 +1,11 @@
-# Errors
+# Laravel
+
+## Model
+```sh
+php artisan make:model Post -a
+php artisan make resource PostResource
+php artisan make resource PostCollection
+```
 
 ## Environment
 
