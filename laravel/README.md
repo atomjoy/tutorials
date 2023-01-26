@@ -48,7 +48,7 @@ public function register()
 
 ## Headers
 
-Gdy chcemy otrzymać odpowiedż w formacie json do zapytania musisz dodać nagłówek **Accept: application/json** wtedy serwer zwróci json string.
+Gdy chcesz otrzymać odpowiedż w formacie json do zapytania musisz dodać nagłówek **Accept: application/json** wtedy serwer zwróci json string.
 
 ## Policy
 
