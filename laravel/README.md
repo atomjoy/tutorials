@@ -11,6 +11,15 @@ Zmieniając APP_DEBUG z **true** na **false** wyłączyasz debugowanie błędów
 Gdy użyjesz teraz **throw new Exception('Empty email', 422)** w kontrolerach to otrzymasz błąd serwera o kodzie 500
 **500 "Server Error"**. 
 
+
+## Headers
+
+Gdy chcesz otrzymać odpowiedż w formacie json do zapytania musisz dodać nagłówek **Accept: application/json** wtedy serwer zwróci json string.
+
+## Policy
+
+W Policy trzeba dodać **index(?User $user)** w metodach bez użytkownika inaczej będzie wyświetlał się błąd uwierzytelnienia.
+
 ## Exception
 
 Jeżeli chcesz przechwycić ten wyjątek to musisz użyć **try{ }catch(Exception $e){ }**. Dla odpowiedzi w formacie json użyj **return response()->json([], 200)** z kodem http **200** lub kodem błędu **422**, aby zapisać błąd do logów użyj **report($e)** i następnie zwróć **response()->json()** z kodem błędu lub sukcesu.
@@ -59,10 +68,3 @@ public function register()
 }
 ```
 
-## Headers
-
-Gdy chcesz otrzymać odpowiedż w formacie json do zapytania musisz dodać nagłówek **Accept: application/json** wtedy serwer zwróci json string.
-
-## Policy
-
-W Policy trzeba dodać **index(?User $user)** w metodach bez użytkownika inaczej będzie wyświetlał się błąd uwierzytelnienia.
