@@ -37,6 +37,19 @@ public function register()
                 $msg = 'Database Error.';
                 $code = 500;
             }
+            
+            if($e instanceof NotFoundHttpException) {
+                $msg = 'Not Found.';
+                $code = 404;
+            }
+
+            if($e instanceof AuthenticationException) {
+                $code = 401;
+            }
+
+            if($e instanceof ValidationException) {
+                $code = 422;
+            }
 
             return response()->json([
                 'message' => trans($msg),
