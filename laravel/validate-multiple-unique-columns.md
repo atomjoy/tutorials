@@ -161,15 +161,17 @@ public function rules()
 
 namespace Webi\Http\Requests;
 
+use Exception;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
-use Webi\Exceptions\WebiException;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
 class WebiRegisterRequest extends FormRequest
 {
-  protected $stopOnFirstFailure = true;
+	// To nie działa jak powinno i wyświetla wszystkie wyjątki zamiast pierwszego 
+	// i tak message z ilością błędów i psuje test, trzeba użyć faliedValidation() z własnym exception.
+  	protected $stopOnFirstFailure = true;
 
 	public function authorize()
 	{
@@ -201,7 +203,12 @@ class WebiRegisterRequest extends FormRequest
 
 	public function failedValidation(Validator $validator)
 	{
-		throw new WebiException($validator->errors()->first());
+		// throw new Exception($validator->errors()->first(), 422);
+		
+		// get only first error (stopOnFirstfailure does not work)
+		throw new HttpResponseException(response()->json([
+			'message' => $validator->errors()->first()
+		], 422));
 	}
 
 	function prepareForValidation()
