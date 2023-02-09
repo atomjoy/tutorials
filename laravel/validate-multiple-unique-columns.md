@@ -64,7 +64,7 @@ https://laravel.com/api/8.x/Illuminate/Validation/Rules/Unique.html
 ->orWhereNotNull('deleted_at'); - Ignore rows where deleted_at == null
 ```
 
-### Przykład walidacji z query
+### Walidacja unikalnych kluczy z podwójnych kolumn
 Podwójny unikalny klucz $table->unique(['size', 'restaurant_id']) z referencją tabela variants
 ```php
 // Unique columns: size, restaurant_id, product_id
