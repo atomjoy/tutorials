@@ -65,7 +65,7 @@ https://laravel.com/api/8.x/Illuminate/Validation/Rules/Unique.html
 ```
 
 ### Walidacja podwójnych unikalnych kluczy w laravel
-Podwójny unikalny klucz $table->unique(['size', 'restaurant_id']) z referencją tabela variants
+Podwójny unikalny klucz $table->unique(['size', 'product_id']) z referencją tabela variants
 ```php
 // Unique columns: size, restaurant_id, product_id
 public function rules()
@@ -85,8 +85,8 @@ public function rules()
 	'size' => [
 		'required',
 		Rule::unique('variants')->where(function ($query) use ($rid, $pid) {
-			return $query->where('restaurant_id', $rid);
-			// return $query->where('restaurant_id', $rid)->where('product_id', $pid);        
+			return $query->where('product_id', $pid);
+			// return $query->where('product_id', $pid)->where('restaurant_id', $rid);        
 		})->whereNull('deleted_at'); // Without trashed rows
 	],
 
@@ -94,8 +94,8 @@ public function rules()
 	'size' => [
 		'required',
 		Rule::unique('variants')->where(function ($query) use ($rid, $pid) {
-			return $query->where('restaurant_id', $rid);
-			// return $query->where('restaurant_id', $rid)->where('product_id', $pid);              
+			return $query->where('product_id', $pid);
+			// return $query->where('product_id', $pid)->where('restaurant_id', $rid);              
 		})->ignore($this->route('variant'))->whereNull('deleted_at'); // Without trashed rows
 	],
   ];
