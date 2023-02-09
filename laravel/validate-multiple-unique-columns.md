@@ -85,8 +85,8 @@ public function rules()
 	'size' => [
 		'required',
 		Rule::unique('variants')->where(function ($query) use ($rid, $pid) {
-		return $query->where('restaurant_id', $rid) ->where('product_id', $pid);
-			// return $query->where('restaurant_id', $rid)->where('product_id', $pid)->where('restaurant_id', $rid);        
+			return $query->where('restaurant_id', $rid);
+			// return $query->where('restaurant_id', $rid)->where('product_id', $pid);        
 		})->whereNull('deleted_at'); // Without trashed rows
 	],
 
@@ -94,8 +94,8 @@ public function rules()
 	'size' => [
 		'required',
 		Rule::unique('variants')->where(function ($query) use ($rid, $pid) {
-		return $query->where('restaurant_id', $rid)->where('product_id', $pid);
-			// return $query->where('restaurant_id', $rid)->where('product_id', $pid)->where('restaurant_id', $rid);            
+			return $query->where('restaurant_id', $rid);
+			// return $query->where('restaurant_id', $rid)->where('product_id', $pid);              
 		})->ignore($this->route('variant'))->whereNull('deleted_at'); // Without trashed rows
 	],
   ];
