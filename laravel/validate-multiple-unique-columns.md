@@ -72,6 +72,7 @@ public function rules()
 {
   $rid = request('restaurant_id');
   $pid = request('product_id');
+  $variant = $this->route('variant');
 
   return [     
 	'price' => 'required|numeric|gte:0|regex:/^-?[0-9]+(?:.[0-9]{1,2})?$/',
@@ -93,10 +94,10 @@ public function rules()
 	// UpdateRequest
 	'size' => [
 		'required',
-		Rule::unique('variants')->where(function ($query) use ($rid, $pid) {
+		Rule::unique('variants')->where(function ($query) use ($rid, $pid, $variant) {
 			return $query->where('product_id', $pid);
 			// return $query->where('product_id', $pid)->where('restaurant_id', $rid);              
-		})->ignore($this->route('variant'))->whereNull('deleted_at'); // Without trashed rows
+		})->ignore($variant)->whereNull('deleted_at'); // Without trashed rows
 	],
   ];
 }
