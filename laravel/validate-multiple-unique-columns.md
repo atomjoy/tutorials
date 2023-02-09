@@ -270,6 +270,7 @@ public function rules()
 			}),
 		],
 		// 'type' => ['required', Rule::in(MyClass::$typesArray)],
+		// 'letter' => ['required', Rule::in(['a', 'b','c'])],
 	];
 }
 ```
