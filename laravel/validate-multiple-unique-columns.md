@@ -74,30 +74,30 @@ public function rules()
   $pid = request('product_id');
 
   return [     
-    'price' => 'required|numeric|gte:0|regex:/^-?[0-9]+(?:.[0-9]{1,2})?$/',
-    'name' => 'required',
+	'price' => 'required|numeric|gte:0|regex:/^-?[0-9]+(?:.[0-9]{1,2})?$/',
+	'name' => 'required',
 	'about' => 'required',
 
 	'restaurant_id' => 'required',
-    'product_id' => 'required',
+	'product_id' => 'required',
 
-    // StoreRequest
-    'size' => [
-      'required',
-      Rule::unique('variants')->where(function ($query) use ($rid, $pid) {
-        return $query->where('restaurant_id', $rid) ->where('product_id', $pid);
-		// return $query->where('restaurant_id', $rid)->where('product_id', $pid)->where('restaurant_id', $rid);        
-      })->whereNull('deleted_at'); // Without trashed rows
-    ],
-    
-    // UpdateRequest
-    'size' => [
-      'required',
-      Rule::unique('variants')->where(function ($query) use ($rid, $pid) {
-        return $query->where('restaurant_id', $rid)->where('product_id', $pid);
-		// return $query->where('restaurant_id', $rid)->where('product_id', $pid)->where('restaurant_id', $rid);            
-      })->ignore($this->route('variant'))->whereNull('deleted_at'); // Without trashed rows
-    ],
+	// StoreRequest
+	'size' => [
+		'required',
+		Rule::unique('variants')->where(function ($query) use ($rid, $pid) {
+		return $query->where('restaurant_id', $rid) ->where('product_id', $pid);
+			// return $query->where('restaurant_id', $rid)->where('product_id', $pid)->where('restaurant_id', $rid);        
+		})->whereNull('deleted_at'); // Without trashed rows
+	],
+
+	// UpdateRequest
+	'size' => [
+		'required',
+		Rule::unique('variants')->where(function ($query) use ($rid, $pid) {
+		return $query->where('restaurant_id', $rid)->where('product_id', $pid);
+			// return $query->where('restaurant_id', $rid)->where('product_id', $pid)->where('restaurant_id', $rid);            
+		})->ignore($this->route('variant'))->whereNull('deleted_at'); // Without trashed rows
+	],
   ];
 }
 
