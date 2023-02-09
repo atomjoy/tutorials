@@ -102,7 +102,6 @@ public function rules()
   ];
 }
 
-<!--
 function prepareForValidation()
 {
 	$this->merge(
@@ -125,7 +124,39 @@ public function failedValidation(Validator $validator)
 {
 	throw new \Exception($validator->errors()->first(), 422);
 } 
--->
+```
+
+
+### Walidacja wielu kolumn z query
+```php
+// Enums php 8.1
+namespace App\Enums;
+
+enum ExamName: string {
+    case EXAM1 = 'exam1';
+    case EXAM2 = 'exam2';
+}
+
+// Validate
+use App\Enums\ExamName;
+use Illuminate\Validation\Rules\Enum;
+
+public function rules()
+{
+	return [
+		'exam_name' => [new Enum(ExamName::class)],
+		'student_id' => 'required|numeric',
+		'exam_year' => 'required|numeric',
+		'exam_category_id' => [
+			'required',
+			Rule::unique('exams')->where(function ($query) use ($request) {
+		   		return $query->where('exam_name', $request->exam_name)->where('exam_year', $request->exam_year)->where('student_id', $request->student_id);
+			}),
+		],
+		// 'type' => ['required', Rule::in(MyClass::$typesArray)],
+		// 'letter' => ['required', Rule::in(['a', 'b','c'])],
+	];
+}
 ```
 
 ### Kontroler resource
@@ -240,37 +271,5 @@ class WebiRegisterRequest extends FormRequest
 			collect(request()->json()->all())->only(['name', 'email', 'password', 'password_confirmation'])->toArray()
 		);
 	}
-}
-```
-
-### Walidacja wielu kolumn z query
-```php
-// Enums php 8.1
-namespace App\Enums;
-
-enum ExamName: string {
-    case EXAM1 = 'exam1';
-    case EXAM2 = 'exam2';
-}
-
-// Validate
-use App\Enums\ExamName;
-use Illuminate\Validation\Rules\Enum;
-
-public function rules()
-{
-	return [
-		'exam_name' => [new Enum(ExamName::class)],
-		'student_id' => 'required|numeric',
-		'exam_year' => 'required|numeric',
-		'exam_category_id' => [
-			'required',
-			Rule::unique('exams')->where(function ($query) use ($request) {
-		   		return $query->where('exam_name', $request->exam_name)->where('exam_year', $request->exam_year)->where('student_id', $request->student_id);
-			}),
-		],
-		// 'type' => ['required', Rule::in(MyClass::$typesArray)],
-		// 'letter' => ['required', Rule::in(['a', 'b','c'])],
-	];
 }
 ```
