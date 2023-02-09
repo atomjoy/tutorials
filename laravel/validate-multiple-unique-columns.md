@@ -31,19 +31,19 @@ $day = $this->route('day');
 // Pojedyńczy unikalny klucz $table->unique('number')
 'number' => Rule::unique('days');
 
-// Podwójny unikalny klucz $table->unique(['number', 'restaurant_id']) z referencją
-'number' => Rule::unique('days', 'restaurant_id');
+// Z inna nazwą kolumny niż ta w request
+'number' => Rule::unique('days', 'number_column');
 
 // StoreDayRequest - Sprawdzaj wiersze tabeli bez tych usunietych z softDelete
-'number' => Rule::unique('days', 'restaurant_id')->withoutTrashed();
-'number' => Rule::unique('days', 'restaurant_id')->whereNull('deleted_at');
+'number' => Rule::unique('days', 'number_column')->withoutTrashed();
+'number' => Rule::unique('days', 'number_column')->whereNull('deleted_at');
 
 // UpdateDayRequest - Ignorowanie sprawdzania istniejącego modelu w tabeli podczas aktualizacji
-'number' => Rule::unique('days', 'restaurant_id')->ignore($this->route('day'))->withoutTrashed();
-'number' => Rule::unique('days', 'restaurant_id')->ignore($this->route('day'))->whereNull('deleted_at');
+'number' => Rule::unique('days', 'number_column')->ignore($this->route('day'))->withoutTrashed();
+'number' => Rule::unique('days', 'number_column')->ignore($this->route('day'))->whereNull('deleted_at');
 
 // UpdateDayRequest - Ignorowanie sprawdzania istniejących modeli w tabeli podczas aktualizacji
-'number' => Rule::unique('days', 'restaurant_id')->whereNull('deleted_at')->orWhereNotNull('deleted_at');
+'number' => Rule::unique('days', 'number_column')->whereNull('deleted_at')->orWhereNotNull('deleted_at');
 
 // Password validation
 'password_current' => 'required',
@@ -62,6 +62,69 @@ https://laravel.com/api/8.x/Illuminate/Validation/Rules/Unique.html
 ->withoutTrashed() - Ignore rows where deleted_at != null
 ->whereNull('deleted_at') - Ignore rows where deleted_at != null
 ->orWhereNotNull('deleted_at'); - Ignore rows where deleted_at == null
+```
+
+### Przykład walidacji z query
+Podwójny unikalny klucz $table->unique(['size', 'restaurant_id']) z referencją tabela variants
+```php
+// Unique columns: size, restaurant_id, product_id
+public function rules()
+{
+  $rid = request('restaurant_id');
+  $pid = request('product_id');
+
+  return [     
+    'price' => 'required|numeric|gte:0|regex:/^-?[0-9]+(?:.[0-9]{1,2})?$/',
+    'name' => 'required',
+	'about' => 'required',
+
+	'restaurant_id' => 'required',
+    'product_id' => 'required',
+
+    // StoreRequest
+    'size' => [
+      'required',
+      Rule::unique('variants')->where(function ($query) use ($rid, $pid) {
+        return $query->where('restaurant_id', $rid) ->where('product_id', $pid);
+		// return $query->where('restaurant_id', $rid)->where('product_id', $pid)->where('restaurant_id', $rid);        
+      })->whereNull('deleted_at'); // Without trashed rows
+    ],
+    
+    // UpdateRequest
+    'size' => [
+      'required',
+      Rule::unique('variants')->where(function ($query) use ($rid, $pid) {
+        return $query->where('restaurant_id', $rid)->where('product_id', $pid);
+		// return $query->where('restaurant_id', $rid)->where('product_id', $pid)->where('restaurant_id', $rid);            
+      })->ignore($this->route('variant'))->whereNull('deleted_at'); // Without trashed rows
+    ],
+  ];
+}
+
+<!--
+function prepareForValidation()
+{
+	$this->merge(
+		$this->stripTags(
+			collect(request()->json()->all())->only([
+				'restaurant_id', 'product_id', 'name', 'about', 'visible', 'sorting'
+			])->toArray()
+		)
+	);
+}
+ 
+public function messages()
+{
+	return [
+		'size.unique' => 'Couple size and product_id has to be unique.',
+	];
+}
+
+public function failedValidation(Validator $validator)
+{
+	throw new \Exception($validator->errors()->first(), 422);
+} 
+-->
 ```
 
 ### Kontroler resource
@@ -111,47 +174,6 @@ public function destroy(Day $day)
   $day->delete(); // Or permanently ->forceDelete();
 
   return $this->jsonResponse("The day has been deleted");
-}
-```
-
-### Przykład walidacji z query
-```php
-public function rules()
-{
-  $rid = request('restaurant_id');
-  $pid = request('product_id');
-
-  return [
-    // uniques
-    'restaurant_id' => 'required',
-    'product_id' => 'required', 
-    'size' => 'required',
-    
-    // columns
-    'price' => 'required|numeric|gte:0|regex:/^-?[0-9]+(?:.[0-9]{1,2})?$/',
-    
-    // StoreRequest
-    'size' => [
-      'required',
-      Rule::unique('variants')->where(function ($query) use ($rid, $pid) {
-        return $query->where('restaurant_id', $rid)
-          ->where('restaurant_id', $rid)
-          ->where('product_id', $pid)
-          ->whereNull('deleted_at'); // Without trashed rows
-      })
-    ],
-    
-    // UpdateRequest
-    'size' => [
-      'required',
-      Rule::unique('variants')->ignore($this->route('variant'))->where(function ($query) use ($rid, $pid) {
-        return $query->where('restaurant_id', $rid)
-          ->where('restaurant_id', $rid)
-          ->where('product_id', $pid)
-          ->whereNull('deleted_at'); // Without trashed rows
-      })
-    ],
-  ];
 }
 ```
 
