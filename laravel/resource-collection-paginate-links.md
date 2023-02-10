@@ -47,7 +47,7 @@ class ProductController extends Controller
 
     $a = Product::where(DB::raw("CONCAT_WS(' ','name','slug','about')"), 'regexp', str_replace(" ", "|", $search))
       ->orderBy("id", 'desc')
-      ->paginate($this->perpage()) // Koniecznie paginate
+      ->paginate($this->perpage()) // Koniecznie paginate https://laravel.com/api/9.x/Illuminate/Pagination/LengthAwarePaginator.html
       ->withQueryString();
    
     return $this->jsonResponse("Products", (new ProductCollection($a))->response()->getData(true));
@@ -67,6 +67,7 @@ class ProductCollection extends ResourceCollection
 	public function toArray($request)
 	{
 		return [
+			//'data' => $this->collection,
 			'data' => ProductResource::collection($this->collection),
 			'links' => $this->resource->withQueryString()->linkCollection(),
 			'meta' => [
@@ -79,7 +80,18 @@ class ProductCollection extends ResourceCollection
 				'last_page' => $this->resource->lastPage(),
 				'perpage' => $this->resource->perPage(),
 				'total' => $this->resource->total(),
-			]
+			],
+			// 'links' => [
+			// 	'prev_page' => $this->resource->previousPageUrl(),
+			// 	'current_page' => $this->resource->url($this->resource->currentPage()),
+			// 	'next_page' => $this->resource->nextPageUrl(),
+			// 	'on_first_page' => $this->resource->onFirstPage(),
+			// 	'on_last_page' => $this->resource->onLastPage(),
+			// 	'perpage' => (int) $this->resource->perPage(),
+			// 	'from' => (int) $this->resource->firstItem(),
+			// 	'to' => (int) $this->resource->lastItem(),
+			//	'total' => $this->resource->total(),
+			// ],
 		];
 	}
 }
@@ -126,4 +138,4 @@ trait HasJsonResponse
 ```
 
 ### Klasa paginatora
-https://laravel.com/api/9.x/Illuminate/Pagination/LengthAwarePaginator.html
+<https://laravel.com/api/9.x/Illuminate/Pagination/LengthAwarePaginator.html>
