@@ -230,6 +230,15 @@ class WebiRegisterRequest extends FormRequest
 	public function authorize()
 	{
 		return true; // Allow all
+		
+		// Sample wirh route and user validation
+		// $post = $this->route()->parameter('post'); 
+		// return (auth()->user()->id == $post->author_id);
+		
+		// Or for logged users
+		// if (\Auth::user() instanceof User) {
+		// 	return true; // Allow all
+		// }
 	}
 
 	public function rules()
