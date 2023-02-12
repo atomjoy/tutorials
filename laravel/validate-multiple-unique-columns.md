@@ -266,12 +266,12 @@ class WebiRegisterRequest extends FormRequest
 
 	public function failedValidation(Validator $validator)
 	{
-		// throw new Exception($validator->errors()->first(), 422);
+		// Get only first error message for api (stopOnFirstfailure displays multiple error messages)
+		throw new Exception($validator->errors()->first(), 422);
 		
-		// get only first error (stopOnFirstfailure does not work)
-		throw new HttpResponseException(response()->json([
-			'message' => $validator->errors()->first()
-		], 422));
+		// Or other exception
+		throw new ValidationException($validator->errors()->first(), 422);
+		throw new HttpResponseException(response()->json(['message' => $validator->errors()->first()], 422));
 	}
 
 	function prepareForValidation()
@@ -279,6 +279,23 @@ class WebiRegisterRequest extends FormRequest
 		$this->merge(
 			collect(request()->json()->all())->only(['name', 'email', 'password', 'password_confirmation'])->toArray()
 		);
+	}
+}
+```
+
+### Custom exception
+```php
+<?php
+
+namespace App\Exceptions;
+
+use Exception;
+
+class ValidationException extends Exception
+{
+	public function __construct(string $message = "", int $code = 422, Throwable|null $previous = null)
+	{
+		parent::__construct($message, $code, $previous);
 	}
 }
 ```
