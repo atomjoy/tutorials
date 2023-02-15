@@ -1,5 +1,5 @@
 # Db Translate Laravel
-Tłumaczenia z bazy danych.
+Tłumaczenia z bazy danych w Laravel.
 
 ## Utwórz
 ```sh
@@ -70,6 +70,15 @@ return new class extends Migration
 		Schema::dropIfExists('translates');
 	}
 };
+```
+
+## Trans
+lang/pl.json
+```json
+pl.json
+{
+"Error key in db": "Niepoprawny klucz w bazie danych"
+}
 ```
 
 ## Przykład
