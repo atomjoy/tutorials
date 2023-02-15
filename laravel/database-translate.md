@@ -6,6 +6,36 @@ Tłumaczenia z bazy danych w Laravel.
 php artisan make:model Translate -m
 ```
 
+## Tabelka
+```php
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+	public function up()
+	{
+		Schema::create('translates', function (Blueprint $table) {
+			$table->id();
+			$table->string('locale')->nullable()->default('en');
+			$table->string('key');
+			$table->string('value');
+			$table->timestamps();
+
+			$table->unique(['locale', 'key']);
+		});
+	}
+
+	public function down()
+	{
+		Schema::dropIfExists('translates');
+	}
+};
+```
+
 ## Model
 ```php
 <?php
@@ -42,42 +72,21 @@ class Translate extends Model
 }
 ```
 
-## Tabelka
-```php
-<?php
-
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
-
-return new class extends Migration
-{
-	public function up()
-	{
-		Schema::create('translates', function (Blueprint $table) {
-			$table->id();
-			$table->string('locale')->nullable()->default('en');
-			$table->string('key');
-			$table->string('value');
-			$table->timestamps();
-
-			$table->unique(['locale', 'key']);
-		});
-	}
-
-	public function down()
-	{
-		Schema::dropIfExists('translates');
-	}
-};
-```
-
-## Trans
+## Plik tłumaczeń w laravel
 lang/pl.json
 ```json
 {
 "Error key in db": "Niepoprawny klucz w bazie danych"
 }
+```
+
+## Migracja
+```sh
+# update tables
+php artisan migrate
+
+# new tables
+php artisan migrate:fresh
 ```
 
 ## Przykład
