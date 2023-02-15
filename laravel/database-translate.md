@@ -5,7 +5,7 @@ Tłumaczenia z bazy danych.
 ```php
 <?php
 
-namespace Cartelo\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -70,11 +70,12 @@ return new class extends Migration
 ## Kontroler
 ```php
 <?php
+use App\Models\Translate;
 
 Route::get('/trans', function () {
 
 	try {
-    if (Translate::all()->count() == 0) {
+		if (Translate::all()->count() == 0) {
 			Translate::create(['locale' => 'pl', 'key' => 'Hello', 'value' => 'Witaj']);
 		}
 		echo "<br> EN " . (new Translate())->trans('Hello');
