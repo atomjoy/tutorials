@@ -1,6 +1,11 @@
 # Db Translate Laravel
 Tłumaczenia z bazy danych.
 
+## Utwórz
+```sh
+php artisan make:model Translate -m
+```
+
 ## Model
 ```php
 <?php
