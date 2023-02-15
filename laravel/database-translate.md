@@ -72,7 +72,7 @@ return new class extends Migration
 };
 ```
 
-## Kontroler
+## Przykład
 ```php
 <?php
 use App\Models\Translate;
