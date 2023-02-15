@@ -1,4 +1,4 @@
-# Translate
+# Db Translate Laravel
 Tłumaczenia z bazy danych.
 
 ## Model
