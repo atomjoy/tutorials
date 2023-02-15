@@ -78,7 +78,7 @@ Route::get('/trans', function () {
 		if (Translate::all()->count() == 0) {
 			Translate::create(['locale' => 'pl', 'key' => 'Hello', 'value' => 'Witaj']);
 		}
-		echo "<br> EN " . (new Translate())->trans('Hello');
+		echo "<br> EN " . Translate::trans('Hello');
 
 		app()->setLocale('pl');
     
