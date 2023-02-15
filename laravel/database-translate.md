@@ -1,4 +1,5 @@
 # Translate
+Tłumaczenia z bazy danych.
 
 ## Model
 ```php
