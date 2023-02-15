@@ -75,7 +75,6 @@ return new class extends Migration
 ## Trans
 lang/pl.json
 ```json
-pl.json
 {
 "Error key in db": "Niepoprawny klucz w bazie danych"
 }
