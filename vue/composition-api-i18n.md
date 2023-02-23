@@ -10,7 +10,7 @@ import en from './lang_en.json' // { "error404" : { "title" : "Error page title 
 import pl from './lang_pl.json' // { "error404" : { "title" : "Tytuł strony tutaj"}}
 
 const lang = {
-	// Allow compositions api
+	// Allow compositions api in components
 	allowComposition: true, 
 	globalInjection: true,
 	legacy: false,
