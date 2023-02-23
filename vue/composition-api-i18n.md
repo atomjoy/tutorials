@@ -10,14 +10,18 @@ import en from './lang_en.json' // { "error404" : { "title" : "Error page title 
 import pl from './lang_pl.json' // { "error404" : { "title" : "Tytuł strony tutaj"}}
 
 const lang = {
-	allowComposition: true, // Allow compositions api
+	// Allow compositions api
+	allowComposition: true, 
+	globalInjection: true,
+	legacy: false,
+	// Locales
 	locale: 'en', // set locale
 	fallbackLocale: 'en', // set fallback locale
 	availableLocales: ['en', 'pl'], // available locales
 	messages: {
-    en: en,
-    pl: pl,
-  },
+		en: en,
+		pl: pl,
+	},
 }
 
 export default lang
