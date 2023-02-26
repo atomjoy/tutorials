@@ -1,0 +1,36 @@
+<style>
+ input,
+textarea,
+select {
+	box-sizing: border-box;
+	float: left;
+	width: 100%;
+	font-size: 1rem;
+	font-weight: 600;
+	margin-bottom: 5px;
+	padding: var(--inp-padding);
+	border-radius: var(--radius);
+	background: var(--inp-bg);
+	color: var(--color-text);
+	border: 1px solid var(--inp-border);
+	transition: all 0.6s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+	outline: none;
+	border: 1px solid var(--inp-border-focus);
+	box-shadow: var(--inp-shadow-focus);
+  
+  /* Border without radius */
+	/* border-image: linear-gradient(to right, red, darkorchid) 1; */
+	
+  /* Border with radius */
+  background: linear-gradient(white, white) padding-box, linear-gradient(to right, red, darkorchid) border-box;
+	border-radius: 10px;
+	border: 1px solid transparent;
+}
+</style>
+
+<input type="text">
