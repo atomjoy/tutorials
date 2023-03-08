@@ -18,8 +18,8 @@
 /* browser setting */
 @media (prefers-color-scheme: dark) {
 	:root {
-    --bg: #222;
-  }
+		--bg: #222;
+	}
 }
 
 /* js change mode html tag */
