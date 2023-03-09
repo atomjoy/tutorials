@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			:root {
+				--navbar: 300px;
+				--divider: #ebebeb;
+			}
+			html {
+				font-size: 20px;
+			}
+			body {
+				display: block;
+				margin: 0px;
+				padding: 0px;
+				font-size: 1.1rem;
+			}
+			#page-wrapper {
+				box-sizing: border-box;
+				min-height: 100vh;
+			}
+			#navbar-wrapper {
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				height: 100vh;
+				width: var(--navbar);
+				border-right: 2px solid var(--divider);
+				background: #fff;
+			}
+			#wrapper {
+				position: relative;
+				box-sizing: border-box;
+				min-height: 100vh;
+				margin: 0px;
+				padding: 0px;
+				padding-left: var(--navbar);
+				overflow: auto;
+			}
+			#menu-wrapper {
+				height: auto;
+				min-height: 100px;
+				position: relative;
+				box-sizing: border-box;
+				border-bottom: 2px solid var(--divider);
+			}
+			.show-wrapper {
+				display: inherit !important;
+			}
+
+			@media all and (max-width: 1024px) {
+				#navbar-wrapper {
+					position: fixed;
+					display: none;
+					z-index: 9;
+				}
+				#wrapper {
+					padding-left: 0px;
+				}
+			}
+		</style>
+
+		<script>
+			window.onload = () => {
+				let el = document.getElementById('menu-wrapper')
+
+				el.addEventListener('click', function (event) {
+					let nav = document.querySelector('#navbar-wrapper')
+					nav.classList.toggle('show-wrapper')
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<section id="page-wrapper">
+			<div id="navbar-wrapper">Navbar</div>
+
+			<div id="wrapper">
+				<div id="menu-wrapper">Menu</div>
+
+				<div id="content-wrapper">
+					<h1>Dashboard</h1>
+					<p style="min-height: 100rem">Page content goes here.</p>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
