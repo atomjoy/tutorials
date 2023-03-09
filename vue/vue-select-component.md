@@ -31,8 +31,8 @@ export default {
   methods: {
     onSubmit: (e) => {
       let data = new FormData(e.target);
-      for (var lang of data.entries()) {
-        console.log("Language", lang);
+      for (var pair of data.entries()) {
+        console.log("Key", pair[0], "Value",  pair[1]);
       }
     },
     alert: (e) => {
