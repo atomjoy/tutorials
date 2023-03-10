@@ -2,7 +2,6 @@
 Vue select komponent z input dla FormData z formularza form.
 
 ## Vue 3 with setup
-- <https://github.com/atomjoy/tutorials/blob/main/vue/components/input/CustomSelect3.vue>
 - <https://github.com/atomjoy/tutorials/blob/main/vue/components/input/CustomSelectKeys3.vue>
 
 ## Sandbox Vue 2
