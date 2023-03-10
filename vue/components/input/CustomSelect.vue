@@ -65,8 +65,6 @@ export default {
   width: 100%;
   text-align: left;
   outline: none;
-  height: 50px;
-  line-height: 50px;
 }
 
 .custom-select .selected {
@@ -77,6 +75,7 @@ export default {
   padding-left: 1em;
   cursor: pointer;
   user-select: none;
+  padding: 1rem 1.5rem;
 }
 
 .custom-select .selected.open {
@@ -114,6 +113,7 @@ export default {
   padding-left: 1em;
   cursor: pointer;
   user-select: none;
+  padding: 1rem 1.5rem;
 }
 
 .custom-select .items div:hover {
