@@ -1,10 +1,31 @@
+<!--
+  <script setup>
+    const selected1 = ref('go')
+    const selected2 = ref(3)
+  </sctipt>
+
+  <CustomSelectKeys
+    :name="'language'"
+    :options="['go', 'python', 'rust', 'javascript']"
+    v-model="selected1"
+    :class="'second-class'"
+  />
+
+  <CustomSelectKeys
+    class="select"
+    :name="'language'"
+    :options="[{key: 1, value: 'go'}, {key: 2, value: 'python'}, {key: 3, value: 'rust'}, {key: 4, value: 'javascript'}]"
+    v-model="selected2"
+  />
+-->
+
 <template>
 	<div class="custom-select" @blur="open = false">
 		<div class="selected" :class="{ open: open }" @click="open = !open">{{ selected }} <i class="fas fa-caret-down selected-icon"></i></div>
 
 		<div class="items" :class="{ selectHide: !open }">
 			<div v-for="(option, i) of options" :key="i" @click="updateClick(option)">
-				{{ option.value }}
+				{{ option.value ?? option }}
 			</div>
 		</div>
 		<!-- @change="emit('update:modelValue', selected)" -->
@@ -24,14 +45,12 @@ const selected = ref(null)
 
 onMounted(() => {
 	// input.value.focus()
-	selected.value = options.value.find((o) => o.key === modelValue.value).value
-	console.log('Selected', modelValue.value)
+	selected.value = options?.value?.find((o) => o.key === modelValue.value)?.value ?? modelValue.value
 })
 
 function updateClick(option) {
-	console.log('Option', option)
-	modelValue.value = option.key
-	selected.value = option.value
+	modelValue.value = option.key ?? option
+	selected.value = option.value ?? option
 	open.value = false
 	emit('update:modelValue', modelValue.value)
 }
@@ -95,16 +114,3 @@ function updateClick(option) {
 	display: none;
 }
 </style>
-
-<!--
-  <script setup>
-    const selected = ref(3)
-  </sctipt>
-
-  <CustomSelectKeys
-    class="select"
-    :name="'language'"
-    :options="[{key: 1, value: 'go'}, {key: 2, value: 'python'}, {key: 3, value: 'rust'}, {key: 4, value: 'javascript'}]"
-    v-model="selected"
-  />
--->
