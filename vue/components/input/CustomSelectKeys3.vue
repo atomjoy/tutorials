@@ -72,6 +72,15 @@ function updateClick(option) {
 </script>
 
 <style scoped>
+:root {
+	--bg: #fff;
+	--color-text: #222;
+	--color: #07f;
+	--inp-border: var(--color);
+	--btn-bg: var(--color);
+	--btn-color: #fff;
+	--radius: 6px;
+}
 .custom-select {
 	position: relative;
 	float: left;
@@ -102,6 +111,10 @@ function updateClick(option) {
 	transform: rotate(180deg);
 }
 .custom-select .items {
+	scrollbar-width: thin;
+	scrollbar-color: var(--color) var(--inp-border);
+  	max-height: 300px;
+	overflow-y: auto;
 	color: var(--btn-color);
 	border-radius: 0px 0px 6px 6px;
 	overflow: hidden;
