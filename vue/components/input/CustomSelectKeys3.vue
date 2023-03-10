@@ -1,5 +1,7 @@
 <!--
 <script setup>
+	import CustomSelect from '@/components/input/CustomSelectKeys3.vue'
+	
 	const selected1 = ref('go')
 	const selected2 = ref(3)
 
@@ -13,14 +15,14 @@
 </sctipt>
 <template>
 	<form @submit.prevent="onSubmit">
-		<CustomSelectKeys
+		<CustomSelect
 			:name="'language1'"
 			:options="['go', 'python', 'rust', 'javascript']"
 			v-model="selected1"
 			:class="'second-class'"
 		/>
 
-		<CustomSelectKeys
+		<CustomSelect
 			class="select"
 			:name="'language2'"
 			:options="[{key: 1, value: 'go'}, {key: 2, value: 'python'}, {key: 3, value: 'rust'}, {key: 4, value: 'javascript'}]"
