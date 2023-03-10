@@ -61,6 +61,11 @@ function updateClick(option) {
 	position: absolute;
 	top: calc(50% - (1rem / 2));
 	right: 1.5em;
+	transition: all 0.6s;
+}
+.custom-select .selected.open .selected-icon {
+	color: #0075ff;
+	transform: rotate(180deg);
 }
 .custom-select .items {
 	color: #fff;
