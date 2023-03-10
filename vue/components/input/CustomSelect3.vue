@@ -24,7 +24,7 @@
 		<CustomSelect
 			class="select"
 			:name="'language2'"
-			:options="[{key: 1, value: 'go'}, {key: 2, value: 'python'}, {key: 3, value: 'rust'}, {key: 4, value: 'javascript'}]"
+			:options="[{ key: 0, value: 'Choose' }, {key: 1, value: 'go'}, {key: 2, value: 'python'}, {key: 3, value: 'rust'}, {key: 4, value: 'javascript'}]"
 			v-model="selected2"
 		/>
 		<button> Send </button>
@@ -34,7 +34,7 @@
 
 <template>
 	<div class="custom-select" @blur="open = false" :tabindex="tabindex">
-		<div class="selected" :class="{ open: open }" @click="open = !open">{{ selected }} <i class="fas fa-caret-down selected-icon"></i></div>
+		<div class="selected" :class="{ open: open, inactive: inactive }" @click="open = !open">{{ selected }} <i class="fas fa-caret-down selected-icon"></i></div>
 
 		<div ref="items" class="items" :class="{ selectHide: !open }">
 			<div v-for="(option, i) of options" :key="i" @click="updateClick(option)">
@@ -54,12 +54,13 @@ const props = defineProps({ name: { type: String }, options: { type: Array }, mo
 const { name, options, modelValue } = toRefs(props)
 const input = ref(null)
 const open = ref(false)
+const inactive = ref(false)
 const selected = ref(null)
 const tabindex = ref(0)
 
 onMounted(() => {
 	// input.value.focus()
-	selected.value = options?.value?.find((o) => o.key === modelValue.value)?.value ?? modelValue.value
+	selected.value = options?.value?.find((option) => option.key === modelValue.value)?.value ?? modelValue.value
 })
 
 function updateClick(option) {
@@ -67,6 +68,10 @@ function updateClick(option) {
 	selected.value = option.value ?? option
 	open.value = false
 	emit('update:modelValue', modelValue.value)
+	inactive.value = false
+	if (option.key == 0) {
+		inactive.value = true
+	}
 }
 </script>
 
@@ -88,6 +93,9 @@ function updateClick(option) {
 .custom-select .selected.open {
 	border: 1px solid #07f;
 	border-radius: 6px 6px 0px 0px;
+}
+.custom-select .selected.inactive {
+	color: #999;
 }
 .custom-select .selected .selected-icon {
 	color: #eee;
