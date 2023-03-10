@@ -1,5 +1,9 @@
-# Select komponent
-Vue select komponent z input dla FormData z formularza form <https://codesandbox.io/s/custom-vue-js-select-component-forked-yx77kh>.
+# Select component
+Vue select komponent z input dla FormData z formularza form.
+
+## Sandbox
+<https://codesandbox.io/s/custom-vue-js-select-component-forked-yx77kh>
+<https://codesandbox.io/s/custom-vue-js-select-component-forked-byricm>
 
 ### App
 ```vue
