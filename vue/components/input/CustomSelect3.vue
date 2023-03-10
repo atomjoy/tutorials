@@ -61,6 +61,9 @@ const tabindex = ref(0)
 onMounted(() => {
 	// input.value.focus()
 	selected.value = options?.value?.find((option) => option.key === modelValue.value)?.value ?? modelValue.value
+	if (modelValue.value == 0) {
+		inactive.value = true
+	}
 })
 
 function updateClick(option) {
