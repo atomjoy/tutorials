@@ -8,9 +8,9 @@
 	function onSubmit(e) {
 		let data = new FormData(e.target);
 		for (var pair of data.entries()) {
-      console.log("Key:", pair[0], "Value:", pair[1]);
+      			console.log("Key:", pair[0], "Value:", pair[1]);
 		}
-    // axios request here
+    		// axios request here
 	}
 </sctipt>
 <template>
