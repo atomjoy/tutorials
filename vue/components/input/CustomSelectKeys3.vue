@@ -117,6 +117,13 @@ function updateClick(option) {
 	max-height: 300px;
 	overflow-y: auto;
 }
+.custom-select .items::-webkit-scrollbar {
+	width: 6px;
+	background-color: var(--inp-border);
+}
+.custom-select .items::-webkit-scrollbar-thumb {
+	background: var(--color);
+}
 .custom-select .items div {
 	color: #111;
 	padding-left: 1em;
