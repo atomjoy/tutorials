@@ -33,8 +33,8 @@
 -->
 
 <template>
-	<div class="custom-select" @blur="open = false">
-		<div class="selected" :class="{ open: open }" @click="open = !open" :tabindex="tabindex">{{ selected }} <i class="fas fa-caret-down selected-icon"></i></div>
+	<div class="custom-select" @blur="open = false" :tabindex="tabindex">
+		<div class="selected" :class="{ open: open }" @click="open = !open">{{ selected }} <i class="fas fa-caret-down selected-icon"></i></div>
 
 		<div ref="items" class="items" :class="{ selectHide: !open }">
 			<div v-for="(option, i) of options" :key="i" @click="updateClick(option)">
