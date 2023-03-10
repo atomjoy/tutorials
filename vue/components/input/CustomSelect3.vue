@@ -1,6 +1,6 @@
 <!--
 <script setup>
-	import CustomSelect from '@/components/input/CustomSelectKeys3.vue'
+	import CustomSelect from '@/components/input/CustomSelect3.vue'
 
 	const selected1 = ref('go')
 	const selected2 = ref(3)
