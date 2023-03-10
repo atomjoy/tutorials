@@ -24,7 +24,7 @@
 		<CustomSelect
 			class="select"
 			:name="'language2'"
-			:options="[{id: 1, value: 'go'}, {id: 2, value: 'python'}, {id: 3, value: 'rust'}, {id: 4, value: 'javascript'}]"
+			:options="[{key: 1, value: 'go'}, {key: 2, value: 'python'}, {key: 3, value: 'rust'}, {key: 4, value: 'javascript'}]"
 			v-model="selected2"
 		/>
 		<button> Send </button>
@@ -59,11 +59,11 @@ const tabindex = ref(0)
 
 onMounted(() => {
 	// input.value.focus()
-	selected.value = options?.value?.find((o) => o.id === modelValue.value)?.value ?? modelValue.value
+	selected.value = options?.value?.find((o) => o.key === modelValue.value)?.value ?? modelValue.value
 })
 
 function updateClick(option) {
-	modelValue.value = option.id ?? option
+	modelValue.value = option.key ?? option
 	selected.value = option.value ?? option
 	open.value = false
 	emit('update:modelValue', modelValue.value)
