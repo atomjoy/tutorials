@@ -1,11 +1,14 @@
 # Select component
 Vue select komponent z input dla FormData z formularza form.
 
-## Sandbox
+## Vue 3 with setup
+<https://github.com/atomjoy/tutorials/blob/main/vue/components/input/CustomSelect3.vue>
+
+## Sandbox Vue 2
 - <https://codesandbox.io/s/custom-vue-js-select-component-forked-yx77kh>
 - <https://codesandbox.io/s/custom-vue-js-select-component-forked-byricm>
 
-### App
+### App Vue 2
 ```vue
 <template>
   <div id="app">
