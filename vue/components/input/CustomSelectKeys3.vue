@@ -119,10 +119,10 @@ function updateClick(option) {
 }
 .custom-select .items::-webkit-scrollbar {
 	width: 6px;
-	background-color: var(--inp-border);
+	background-color: #07f;
 }
 .custom-select .items::-webkit-scrollbar-thumb {
-	background: var(--color);
+	background: #07f;
 }
 .custom-select .items div {
 	color: #111;
