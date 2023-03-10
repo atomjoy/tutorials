@@ -1,22 +1,35 @@
 <!--
-  <script setup>
-    const selected1 = ref('go')
-    const selected2 = ref(3)
-  </sctipt>
+<script setup>
+	const selected1 = ref('go')
+	const selected2 = ref(3)
 
-  <CustomSelectKeys
-    :name="'language'"
-    :options="['go', 'python', 'rust', 'javascript']"
-    v-model="selected1"
-    :class="'second-class'"
-  />
+	function onSubmit(e) {
+		let data = new FormData(e.target);
+		for (var pair of data.entries()) {
+			console.log("Key:", pair[0], "Value:", pair[1]);
+			// axios request here
+		}
+	}
+</sctipt>
+<template>
+	<form @submit.prevent="onSubmit">
+		<CustomSelectKeys
+			:name="'language1'"
+			:options="['go', 'python', 'rust', 'javascript']"
+			v-model="selected1"
+			:class="'second-class'"
+		/>
 
-  <CustomSelectKeys
-    class="select"
-    :name="'language'"
-    :options="[{key: 1, value: 'go'}, {key: 2, value: 'python'}, {key: 3, value: 'rust'}, {key: 4, value: 'javascript'}]"
-    v-model="selected2"
-  />
+		<CustomSelectKeys
+			class="select"
+			:name="'language2'"
+			:options="[{key: 1, value: 'go'}, {key: 2, value: 'python'}, {key: 3, value: 'rust'}, {key: 4, value: 'javascript'}]"
+			v-model="selected2"
+		/>
+
+		<button> Send </button>
+	</form>
+</template>
 -->
 
 <template>
