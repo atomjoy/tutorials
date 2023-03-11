@@ -1,42 +1,48 @@
 <!--
 <script setup>
-	import CustomSelect from '@/components/input/CustomSelect3.vue'
+  import CustomSelect from '@/components/input/CustomSelect3.vue'
 
-	const selected1 = ref('go')
-	const selected2 = ref(3)
+  const selected1 = ref(null)
+  const selected2 = ref(3)
 
-	function onSubmit(e) {
-		let data = new FormData(e.target);
-		for (var pair of data.entries()) {
-      			console.log("Key:", pair[0], "Value:", pair[1]);
-		}
-    		// axios request here
-	}
+  function onSubmit(e) {
+    let data = new FormData(e.target);
+    for (var pair of data.entries()) {
+      console.log("Key:", pair[0], "Value:", pair[1]);
+    }
+    // axios request here
+  }
 </sctipt>
 <template>
-	<form @submit.prevent="onSubmit">
-		<CustomSelect
-			:name="'language1'"
-			:options="['go', 'python', 'rust', 'javascript']"
-			v-model="selected1"
-			:class="'second-class'"
-		/>
-		<CustomSelect
-			class="select"
-			:name="'language2'"
-			:options="[{ key: 0, value: 'Choose' }, {key: 1, value: 'go'}, {key: 2, value: 'python'}, {key: 3, value: 'rust'}, {key: 4, value: 'javascript'}]"
-			v-model="selected2"
-		/>
-		<button> Send </button>
-	</form>
+  <form @submit.prevent="onSubmit">
+    <CustomSelect v-model="selected1" :placeholder="'Wybierz'" :label="'Language1'" :name="'language1'" :options="['Go', 'Python', 'Rust', 'Javascript', 'Php', 'Html', 'Vue', 'React', 'Css']" :class="'custom-class'" />
+
+    <CustomSelect
+      v-model="selected2"
+      :placeholder="'Wybierz'"
+      :label="'Language2'"
+      :name="'language2'"
+      :options="[
+        { key: 1, value: 'Php' },
+        { key: 2, value: 'Css' },
+        { key: 3, value: 'Html' },
+        { key: 4, value: 'JavaScript' },
+      ]"
+      :class="'custom-class'"
+    />
+
+    <button> Send </button>
+  </form>
 </template>
 -->
 
 <template>
+	<label v-if="label" :for="name">{{ label }}</label>
 	<div class="custom-select" @blur="open = false" :tabindex="tabindex">
 		<div class="selected" :class="{ open: open, inactive: inactive }" @click="open = !open">{{ selected }} <i class="fas fa-caret-down selected-icon"></i></div>
 
-		<div ref="items" class="items" :class="{ selectHide: !open }">
+		<div ref="items" class="items" :class="{ selectHide: !open }">		
+			<div :key="0" @click="updateClick(null)">{{ placeholder }}</div>			
 			<div v-for="(option, i) of options" :key="i" @click="updateClick(option)">
 				{{ option.value ?? option }}
 			</div>
@@ -50,31 +56,46 @@
 import { ref, onMounted, toRefs } from 'vue'
 
 const emit = defineEmits(['update:modelValue', 'change', 'click', 'blur'])
-const props = defineProps({ name: { type: String }, options: { type: Array }, modelValue: { type: String } })
-const { name, options, modelValue } = toRefs(props)
+const props = defineProps({
+	label: { type: String },
+	name: { type: String },
+	options: { type: Array },
+	modelValue: { type: String },
+	tabindex: { type: Number, default: 0 },
+	placeholder: { type: String, default: 'Choose something' },
+})
+const { label, name, options, modelValue, tabindex, placeholder } = toRefs(props)
 const input = ref(null)
 const open = ref(false)
 const inactive = ref(false)
 const selected = ref(null)
-const tabindex = ref(0)
 
 onMounted(() => {
-	// input.value.focus()
-	selected.value = options?.value?.find((option) => option.key === modelValue.value)?.value ?? modelValue.value
-	if (modelValue.value == 0) {
+	if (modelValue.value !== null) {
+		selected.value = options?.value?.find((option) => option.key === modelValue.value)?.value ?? modelValue.value
+	} else {
+		selected.value = placeholder.value
 		inactive.value = true
+		modelValue.value = null
 	}
 })
 
-function updateClick(option) {
-	modelValue.value = option.key ?? option
-	selected.value = option.value ?? option
-	open.value = false
-	emit('update:modelValue', modelValue.value)
-	inactive.value = false
-	if (option.key == 0) {
+function updateClick(option = null) {
+	if (option == null) {
+		// placeholder
+		modelValue.value = null
+		selected.value = placeholder.value
 		inactive.value = true
+		open.value = false
+	} else {
+		// Options
+		modelValue.value = option.key ?? option
+		selected.value = option.value ?? option
+		inactive.value = false
+		open.value = false
 	}
+
+	emit('update:modelValue', modelValue.value)
 }
 
 function renameKeys(obj = { id: '1', name: 'Alex' }, newKeys = { id: 'key', name: 'value' }) {
