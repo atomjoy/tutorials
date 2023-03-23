@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- <meta name="csrf_token" content="{{ csrf_token() }}" /> -->
+
+		<title>RWD List</title>
+
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+		<!-- Styles -->
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			body { 
+				font-family: 'Exo', sans-serif; 
+				float: left;
+				width: 100%;
+				margin: 0px; 
+				padding: 0px;
+			}
+			
+			h4 {
+				padding: 10px 25px
+			}
+			
+			.list {
+				float: left;
+				width: 100%;
+				padding: 24px 12px;
+				background: #00339906;
+				box-sizing: border-box;
+   			overflow: hidden;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				/*justify-content: space-between;*/
+				scroll-snap-type: x mandatory;
+			}
+			
+			.item {
+				float: left;
+				margin: 12px;
+				width: calc(25% - 24px);
+				border-radius: 10px;
+				box-sizing: border-box;
+				scroll-snap-align: start;
+			}
+
+			@media all and (max-width:  1024px) {
+				.item {
+					float: left;
+					margin: 12px;
+					width: calc(33.333% - 24px);
+					border-radius: 10px;
+					box-sizing: border-box;
+					scroll-snap-align: start;
+				}
+			}
+
+			@media all and (max-width:  640px) {
+				.item {
+					float: left;
+					margin: 12px;
+					width: calc(50% - 24px);
+					max-width: calc(50% - 24px);
+					border-radius: 10px;
+					box-sizing: border-box;
+					scroll-snap-align: start;
+				}
+			}
+			
+			@media all and (max-width:  480px) {
+				.item {
+					float: left;
+					margin: 12px;
+					width: calc(100% - 24px);
+					max-width: calc(100% - 24px);
+					border-radius: 10px;
+					box-sizing: border-box;
+					scroll-snap-align: start;
+				}
+			}
+		</style>
+
+		<!-- Vue app style laravel -->
+		<!-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> -->        
+		<!--
+		<script>
+			const csrf_token = document.querySelector("[name='csrf_token']").content
+		</script>
+		-->
+	</head>
+	<body>
+		
+		<h4> RWD List CSS style </h4>
+		
+		<div class="list">		
+			<img src="https://cdn.dribbble.com/users/133941/screenshots/16300492/media/daa3df08e1e1da466252e3eac7f63eeb.png?compress=1&resize=1200x900&vertical=top" class="item">		    
+			<img src="https://cdn.dribbble.com/users/133941/screenshots/7482314/media/8f129f7fd401be3aceb66d09f9a51541.png?compress=1&resize=1200x900&vertical=top" class="item">												    		
+			<img src="https://cdn.dribbble.com/users/133941/screenshots/9713910/media/52a8550476a5140c96ae5653c18373dc.png?compress=1&resize=1200x900&vertical=top" class="item">
+			<img src="https://cdn.dribbble.com/users/2345673/screenshots/16485798/media/2d4e8f404fdf27df51bc6dd868317486.png?compress=1&resize=1200x900&vertical=top" class="item">
+			<img src="https://cdn.dribbble.com/users/133941/screenshots/16601668/media/220d42c59712e235bcfcbb719bc3b30f.png?compress=1&resize=800x600&vertical=top" class="item">
+			<img src="https://cdn.dribbble.com/users/877784/screenshots/9480500/media/0667a4466179474baa987c936bf8c171.png?compress=1&resize=1200x900&vertical=top" class="item">
+			<img src="https://cdn.dribbble.com/users/2586416/screenshots/16957637/media/98662c47995b34d8754c85183dce64a6.png?compress=1&resize=1200x900&vertical=top" class="item">
+			<img src="https://cdn.dribbble.com/users/133941/screenshots/16197605/media/b60a5c090c32e67e074b96b7e346298a.png?compress=1&resize=1200x900&vertical=top" class="item">
+			<img src="https://cdn.dribbble.com/users/133941/screenshots/16158409/media/19ca06521cfff246977822302236fc4e.jpg?compress=1&resize=1200x900&vertical=top" class="item">
+			<img src="https://cdn.dribbble.com/users/2106722/screenshots/15612684/media/2420c2165434450c2652f54da30753df.png?compress=1&resize=1200x900&vertical=top" class="item">
+			<img src="https://cdn.dribbble.com/users/2106722/screenshots/17121827/media/58d43fca5ab7e445cb09ec268d1fd13d.png?compress=1&resize=1200x900&vertical=top" class="item">
+			<img src="https://cdn.dribbble.com/users/133941/screenshots/10817623/media/97a6e09451896f3e673432a86a021415.png?compress=1&resize=1200x900&vertical=top" class="item">
+			<img src="https://cdn.dribbble.com/users/133941/screenshots/15656370/media/24b9d41164e4c3736fea0bbfaa2d5561.jpg?compress=1&resize=1200x900&vertical=top" class="item">
+			<img src="https://cdn.dribbble.com/users/2303657/screenshots/15367038/media/2c59fe6291fa91cebde76e7d3dc592fc.png?compress=1&resize=800x600&vertical=top" class="item">
+			<img src="https://cdn.dribbble.com/users/1998175/screenshots/16954323/media/78e5f2f84c285341a7bf9fc918f3934b.jpg" class="item">
+			<img src="https://cdn.dribbble.com/users/1454237/screenshots/14826038/media/54ef28c019ef0e55e70f6e67c281eedf.png" class="item">
+			<img src="https://cdn.dribbble.com/users/1998175/screenshots/17035580/media/ace0a6a8381ab3eadaf7d0cbc7316192.jpg" class="item">
+			<img src="https://cdn.dribbble.com/users/2303657/screenshots/15742401/media/88b235b75d418d3299590a4fc1179e45.png?compress=1&resize=800x600&vertical=top" class="item">
+			<img src="https://cdn.dribbble.com/users/2345673/screenshots/16223297/media/a064fa8ea3aa79963833a7e43f1c5bf2.png?compress=1&resize=1200x900&vertical=top" class="item">
+		</div>		
+		
+		<!-- Vue app js laravel -->
+		<!-- <script src="{{ mix('js/app.js') }}"></script> -->
+	</body>
+</html>
