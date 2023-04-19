@@ -219,6 +219,11 @@ a.menu-link {
 	background: conic-gradient(hsl(360, 100%, 50%), hsl(315, 100%, 50%), hsl(270, 100%, 50%), hsl(225, 100%, 50%), hsl(180, 100%, 50%), hsl(135, 100%, 50%), hsl(90, 100%, 50%), hsl(45, 100%, 50%), hsl(0, 100%, 50%));
 }
 
+.input-border {
+	border: 1px solid transparent;
+	background: linear-gradient(var(--bg-mute), var(--bg-mute)) padding-box, linear-gradient(to right, #0077ff, #cc55cc) border-box;
+}
+
 #app {
 	min-height: 100vh;
 	padding: 0px;
