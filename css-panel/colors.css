@@ -1,4 +1,7 @@
-/* color generator https://www.tailwindshades.com */
+/*
+color generator https://www.tailwindshades.com
+replace regex vscode: (.*:) '(#.*)',
+*/
 
 :root {
 	/* gray */
@@ -52,6 +55,32 @@
 	--cookie-800: #18232e;
 	--cookie-900: #111920;
 	--cookie-950: #0d131a;
+
+	/* brown */
+	--brown-50: #b19784;
+	--brown-100: #a78a75;
+	--brown-200: #8f715a;
+	--brown-300: #6f5847;
+	--brown-400: #504033;
+	--brown-500: #31271f;
+	--brown-600: #2b221b;
+	--brown-700: #251d17;
+	--brown-800: #1e1813;
+	--brown-900: #18130f;
+	--brown-950: #15110d;
+
+	/* gold */
+	--gold-50: #f7ecdd;
+	--gold-100: #f5e6d2;
+	--gold-200: #f0dbbd;
+	--gold-300: #ebd0a9;
+	--gold-400: #e7c494;
+	--gold-500: #e2b97f;
+	--gold-600: #d79e4d;
+	--gold-700: #bc802b;
+	--gold-800: #8a5e1f;
+	--gold-900: #583c14;
+	--gold-950: #3f2b0e;
 
 	/* buttons */
 	--btn-cookie-primary: #2d4156;
