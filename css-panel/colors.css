@@ -1,0 +1,59 @@
+/* color generator https://www.tailwindshades.com */
+
+:root {
+	/* gray */
+	--gray-50: #ffffff;
+	--gray-100: #f1f3f4;
+	--gray-200: #ced5d9;
+	--gray-300: #acb5be;
+	--gray-400: #8a94a3;
+	--gray-500: #697386;
+	--gray-600: #5a5f72;
+	--gray-700: #4a4c5e;
+	--gray-800: #3a3b4a;
+	--gray-900: #2c2b36;
+	--gray-950: #24232c;
+
+	/* blue */
+	--blue-50: #cfe3ff;
+	--blue-100: #b8d6ff;
+	--blue-200: #8abdff;
+	--blue-300: #5ca5ff;
+	--blue-400: #2e8cff;
+	--blue-500: #0075ff;
+	--blue-600: #0064d6;
+	--blue-700: #0052ad;
+	--blue-800: #003f85;
+	--blue-900: #002d5c;
+	--blue-950: #002347;
+
+	/* orange */
+	--orange-50: #ffcaa1;
+	--orange-100: #ffbf8f;
+	--orange-200: #ffa86b;
+	--orange-300: #ff8f47;
+	--orange-400: #ff7424;
+	--orange-500: #ff5800;
+	--orange-600: #fa5100;
+	--orange-700: #f54a00;
+	--orange-800: #f04300;
+	--orange-900: #eb3d00;
+	--orange-950: #e83900;
+
+	/* cookie */
+	--cookie-50: #f7f9fb;
+	--cookie-100: #dce4ed;
+	--cookie-200: #a7bbd1;
+	--cookie-300: #7192b5;
+	--cookie-400: #49698c;
+	--cookie-500: #2d4156;
+	--cookie-600: #263749;
+	--cookie-700: #1f2d3b;
+	--cookie-800: #18232e;
+	--cookie-900: #111920;
+	--cookie-950: #0d131a;
+
+	/* buttons */
+	--btn-cookie-primary: #2d4156;
+	--btn-cookie-secondary: #eaeff2;
+}
