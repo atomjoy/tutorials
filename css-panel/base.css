@@ -19,6 +19,10 @@
 	--accent-secondary: #4f4bad;
 	--divider-primary: #e1e6ef;
 
+	/* buttons */
+	--btn-cookie-primary: #2d4156;
+	--btn-cookie-secondary: #eaeff2;
+
 	/* colors */
 	--color-1: #e9ad79;
 	--color-2: #85b899;
