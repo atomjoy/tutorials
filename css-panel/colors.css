@@ -84,6 +84,19 @@ vscode replace: --blue-$1 $2;
 	--blue-doger-900: #001854;
 	--blue-doger-950: #001038;
 
+	/* blue-navy */
+	--blue-navy-50: #b9c1f0;
+	--blue-navy-100: #a8b3ec;
+	--blue-navy-200: #8795e5;
+	--blue-navy-300: #6578de;
+	--blue-navy-400: #445ad6;
+	--blue-navy-500: #2b43c6;
+	--blue-navy-600: #213398;
+	--blue-navy-700: #17246a;
+	--blue-navy-800: #0d143c;
+	--blue-navy-900: #03050e;
+	--blue-navy-950: #000000;
+
 	/* blue-mirage */
 	--blue-mirage-50: #4c6aa5;
 	--blue-mirage-100: #466197;
@@ -135,6 +148,19 @@ vscode replace: --blue-$1 $2;
 	--red-800: #d40010;
 	--red-900: #bb000e;
 	--red-950: #ae000d;
+
+	/* red-navy */
+	--red-navy-50: #ee9792;
+	--red-navy-100: #eb8780;
+	--red-navy-200: #e6655d;
+	--red-navy-300: #e04439;
+	--red-navy-400: #d02b21;
+	--red-navy-500: #ad241b;
+	--red-navy-600: #8a1d15;
+	--red-navy-700: #661510;
+	--red-navy-800: #430e0a;
+	--red-navy-900: #200705;
+	--red-navy-950: #0e0302;
 
 	/* orange */
 	--orange-50: #ffcaa1;
