@@ -230,4 +230,23 @@ vscode replace: --blue-$1 $2;
 	/* buttons */
 	--btn-cookie-primary: #2d4156;
 	--btn-cookie-secondary: #eaeff2;
+
+	/* theme */
+	--th-orange-1: #1e1e1d;
+	--th-orange-2: #aeac92;
+	--th-orange-3: #e7e7d6;
+	--th-orange-4: #ff5800;
+	--th-orange-5: #ff6d00;
+	--th-orange-6: #ff8c00;
+
+	/* theme dark */
+	--th-dark-1: #070707;
+	--th-dark-2: #161616;
+	--th-dark-3: #0f0f0f;
+	--th-dark-4: #3a3c50;
+	--th-dark-5: #525155;
+	--th-dark-6: #e5e5e5;
+	--th-dark-7: #ad241b;
+	--th-dark-8: #1bad3f;
+	--th-dark-9: #2b43c6;
 }
