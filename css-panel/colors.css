@@ -1,9 +1,24 @@
 /*
-color generator https://www.tailwindshades.com
-replace regex vscode: (.*:) '(#.*)',
+default color: --color-name-500
+color generator: https://www.tailwindshades.com
+vscode regex: (.*:) '(#.*)',
+vscode replace: --blue-$1 $2;
 */
 
 :root {
+	/* black */
+	--black-50: #656a8b;
+	--black-100: #5d617f;
+	--black-200: #4c4f68;
+	--black-300: #3a3d50;
+	--black-400: #292b39;
+	--black-500: #181921;
+	--black-600: #16171e;
+	--black-700: #14151b;
+	--black-800: #121218;
+	--black-900: #0f1015;
+	--black-950: #0e0f14;
+
 	/* gray */
 	--gray-50: #ffffff;
 	--gray-100: #f1f3f4;
@@ -16,6 +31,32 @@ replace regex vscode: (.*:) '(#.*)',
 	--gray-800: #3a3b4a;
 	--gray-900: #2c2b36;
 	--gray-950: #24232c;
+
+	/* gray-cod */
+	--gray-cod-50: #dedede;
+	--gray-cod-100: #c7c7c7;
+	--gray-cod-200: #999999;
+	--gray-cod-300: #6b6b6b;
+	--gray-cod-400: #3d3d3d;
+	--gray-cod-500: #0f0f0f;
+	--gray-cod-600: #0c0c0c;
+	--gray-cod-700: #0a0a0a;
+	--gray-cod-800: #070707;
+	--gray-cod-900: #050505;
+	--gray-cod-950: #040404;
+
+	/* gray-steal */
+	--gray-steal-50: #716a97;
+	--gray-steal-100: #68618b;
+	--gray-steal-200: #565073;
+	--gray-steal-300: #44405b;
+	--gray-steal-400: #322f43;
+	--gray-steal-500: #201e2b;
+	--gray-steal-600: #1e1c28;
+	--gray-steal-700: #1c1a25;
+	--gray-steal-800: #191822;
+	--gray-steal-900: #17161f;
+	--gray-steal-950: #16151d;
 
 	/* blue */
 	--blue-50: #cfe3ff;
@@ -30,6 +71,71 @@ replace regex vscode: (.*:) '(#.*)',
 	--blue-900: #002d5c;
 	--blue-950: #002347;
 
+	/* blue-doger */
+	--blue-doger-50: #edf2ff;
+	--blue-doger-100: #d8e3ff;
+	--blue-doger-200: #afc6ff;
+	--blue-doger-300: #87a9ff;
+	--blue-doger-400: #5e8cff;
+	--blue-doger-500: #356fff;
+	--blue-doger-600: #0048fc;
+	--blue-doger-700: #0038c4;
+	--blue-doger-800: #00288c;
+	--blue-doger-900: #001854;
+	--blue-doger-950: #001038;
+
+	/* blue-mirage */
+	--blue-mirage-50: #4c6aa5;
+	--blue-mirage-100: #466197;
+	--blue-mirage-200: #394f7b;
+	--blue-mirage-300: #2c3d5f;
+	--blue-mirage-400: #1f2b43;
+	--blue-mirage-500: #121927;
+	--blue-mirage-600: #101724;
+	--blue-mirage-700: #0f1520;
+	--blue-mirage-800: #0d121d;
+	--blue-mirage-900: #0c1019;
+	--blue-mirage-950: #0b0f17;
+
+	/* blue-ebony */
+	--blue-ebony-50: #426ba3;
+	--blue-ebony-100: #3c6194;
+	--blue-ebony-200: #304e77;
+	--blue-ebony-300: #253b5a;
+	--blue-ebony-400: #19283d;
+	--blue-ebony-500: #0d1520;
+	--blue-ebony-600: #0c131c;
+	--blue-ebony-700: #0a1019;
+	--blue-ebony-800: #090e15;
+	--blue-ebony-900: #070b11;
+	--blue-ebony-950: #060a10;
+
+	/* green */
+	--green-50: #bfecbf;
+	--green-100: #b3e8b3;
+	--green-200: #9ce19c;
+	--green-300: #84da84;
+	--green-400: #6dd36d;
+	--green-500: #55cc55;
+	--green-600: #3ac33a;
+	--green-700: #32a732;
+	--green-800: #2a8c2a;
+	--green-900: #227022;
+	--green-950: #1e631e;
+
+	/* red */
+	--red-50: #ffacb2;
+	--red-100: #ff9ca4;
+	--red-200: #ff7e88;
+	--red-300: #ff5f6b;
+	--red-400: #ff414f;
+	--red-500: #ff2233;
+	--red-600: #ff081b;
+	--red-700: #ee0012;
+	--red-800: #d40010;
+	--red-900: #bb000e;
+	--red-950: #ae000d;
+
 	/* orange */
 	--orange-50: #ffcaa1;
 	--orange-100: #ffbf8f;
@@ -42,6 +148,19 @@ replace regex vscode: (.*:) '(#.*)',
 	--orange-800: #f04300;
 	--orange-900: #eb3d00;
 	--orange-950: #e83900;
+
+	/* yellow */
+	--yellow-50: #fff3d2;
+	--yellow-100: #ffeec0;
+	--yellow-200: #ffe59c;
+	--yellow-300: #ffdb78;
+	--yellow-400: #ffd255;
+	--yellow-500: #ffc831;
+	--yellow-600: #ffc118;
+	--yellow-700: #fdb900;
+	--yellow-800: #e4a700;
+	--yellow-900: #ca9400;
+	--yellow-950: #bd8b00;
 
 	/* cookie */
 	--cookie-50: #f7f9fb;
