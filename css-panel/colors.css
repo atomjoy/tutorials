@@ -19,6 +19,19 @@ vscode replace: --blue-$1 $2;
 	--black-900: #0f1015;
 	--black-950: #0e0f14;
 
+	/* black-night */
+	--black-night-50: #41413f;
+	--black-night-100: #3d3d3b;
+	--black-night-200: #353534;
+	--black-night-300: #2e2e2c;
+	--black-night-400: #262625;
+	--black-night-500: #1e1e1d;
+	--black-night-600: #1b1b1a;
+	--black-night-700: #191918;
+	--black-night-800: #161615;
+	--black-night-900: #141413;
+	--black-night-950: #121212;
+
 	/* gray */
 	--gray-50: #ffffff;
 	--gray-100: #f1f3f4;
@@ -231,22 +244,47 @@ vscode replace: --blue-$1 $2;
 	--btn-cookie-primary: #2d4156;
 	--btn-cookie-secondary: #eaeff2;
 
-	/* theme */
-	--th-orange-1: #1e1e1d;
-	--th-orange-2: #aeac92;
-	--th-orange-3: #e7e7d6;
-	--th-orange-4: #ff5800;
-	--th-orange-5: #ff6d00;
-	--th-orange-6: #ff8c00;
+	/* theme dark */
+	--to-1: #1e1e1d;
+	--to-2: #242423;
+	--to-3: #3a3939;
+	--to-4: #aeac92;
+	--to-5: #e7e7d6;
+	--to-6: #ff5800;
+	--to-7: #ff6d00;
+	--to-8: #ff8c00;
+	--to-9: #ffb356;
 
 	/* theme dark */
-	--th-dark-1: #070707;
-	--th-dark-2: #161616;
-	--th-dark-3: #0f0f0f;
-	--th-dark-4: #3a3c50;
-	--th-dark-5: #525155;
-	--th-dark-6: #e5e5e5;
-	--th-dark-7: #ad241b;
-	--th-dark-8: #1bad3f;
-	--th-dark-9: #2b43c6;
+	--td-1: #070707;
+	--td-2: #161616;
+	--td-3: #0f0f0f;
+	--td-4: #525155;
+	--td-5: #e5e5e5;
+	--td-6: #e8c30a;
+	--td-7: #ad241b;
+	--td-8: #1bad3f;
+	--td-9: #2b43c6;
+
+	/* theme dark */
+	--ta-1: #151819;
+	--ta-2: #1f2123;
+	--ta-3: #2c2e32;
+	--ta-4: #47494b;
+	--ta-5: #f3f5f7;
+	--ta-6: #fcbf87;
+	--ta-7: #b4fcc4;
+	--ta-8: #b1d6fe;
+	--ta-9: #dcc1f3;
+
+	/* theme dark */
+	--tb-1: #101216;
+	--tb-2: #15171c;
+	--tb-3: #1a1c20;
+	--tb-4: #47494b;
+	--tb-5: #f3f5f7;
+	--tb-6: #e4692b;
+	--tb-7: #29c78f;
+	--tb-8: #255eee;
+	--tb-9: #834aca;
 }
