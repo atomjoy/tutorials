@@ -32,6 +32,19 @@ vscode replace: --blue-$1 $2;
 	--black-night-900: #141413;
 	--black-night-950: #121212;
 
+	/* black-woodsmoke */
+	--black-woodsmoke-50: #292d36;
+	--black-woodsmoke-100: #262a33;
+	--black-woodsmoke-200: #22252d;
+	--black-woodsmoke-300: #1e2128;
+	--black-woodsmoke-400: #191c22;
+	--black-woodsmoke-500: #15171c;
+	--black-woodsmoke-600: #131519;
+	--black-woodsmoke-700: #101216;
+	--black-woodsmoke-800: #0e1013;
+	--black-woodsmoke-900: #0c0d10;
+	--black-woodsmoke-950: #0b0c0f;
+
 	/* gray */
 	--gray-50: #ffffff;
 	--gray-100: #f1f3f4;
@@ -267,17 +280,6 @@ vscode replace: --blue-$1 $2;
 	--to-9: #ffb356;
 
 	/* theme dark */
-	--td-1: #070707;
-	--td-2: #161616;
-	--td-3: #0f0f0f;
-	--td-4: #525155;
-	--td-5: #e5e5e5;
-	--td-6: #e8c30a;
-	--td-7: #ad241b;
-	--td-8: #1bad3f;
-	--td-9: #2b43c6;
-
-	/* theme dark */
 	--ta-1: #151819;
 	--ta-2: #1f2123;
 	--ta-3: #2c2e32;
@@ -298,4 +300,48 @@ vscode replace: --blue-$1 $2;
 	--tb-7: #29c78f;
 	--tb-8: #255eee;
 	--tb-9: #834aca;
+
+	/* theme dark */
+	--tc-1: #222124;
+	--tc-2: #232526;
+	--tc-3: #292929;
+	--tc-4: #4b4b4b;
+	--tc-5: #f3f5f7;
+	--tc-6: #f6592f;
+	--tc-7: #3ca153;
+	--tc-8: #4876a8;
+	--tc-9: #8372bf;
+
+	/* theme dark */
+	--td-1: #070707;
+	--td-2: #161616;
+	--td-3: #0f0f0f;
+	--td-4: #525155;
+	--td-5: #e5e5e5;
+	--td-6: #e8c30a;
+	--td-7: #ad241b;
+	--td-8: #1bad3f;
+	--td-9: #2b43c6;
+
+	/* theme dark */
+	--te-1: #191a23;
+	--te-2: #222531;
+	--te-3: #2a2c3b;
+	--te-4: #6b6c75;
+	--te-5: #e3e5e7;
+	--te-6: #f15c45;
+	--te-7: #ffcb32;
+	--te-8: #8cc156;
+	--te-9: #5ee9cf;
+
+	/* theme dark */
+	--tf-1: #16171b;
+	--tf-2: #191b1f;
+	--tf-3: #1e1f25;
+	--tf-4: #323337;
+	--tf-5: #e5e5e5;
+	--tf-6: #f15c45;
+	--tf-7: #fe8f38;
+	--tf-8: #8cc156;
+	--tf-9: #5ee9cf;
 }
