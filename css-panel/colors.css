@@ -258,26 +258,26 @@ vscode replace: --blue-$1 $2;
 	--btn-cookie-secondary: #eaeff2;
 
 	/* theme white */
-	--tw-1: #ffffff;
-	--tw-2: #f3f5f7;
-	--tw-3: #d1dce8;
-	--tw-4: #989fb0;
-	--tw-5: #151819;
-	--tw-6: #faac63;
-	--tw-7: #2ed552;
-	--tw-8: #4590e0;
-	--tw-9: #bc7cf4;
+	--taw-1: #ffffff;
+	--taw-2: #f3f5f7;
+	--taw-3: #d1dce8;
+	--taw-4: #989fb0;
+	--taw-5: #151819;
+	--taw-6: #faac63;
+	--taw-7: #2ed552;
+	--taw-8: #4590e0;
+	--taw-9: #bc7cf4;
 
-	/* theme dark */
-	--to-1: #1e1e1d;
-	--to-2: #242423;
-	--to-3: #3a3939;
-	--to-4: #aeac92;
-	--to-5: #e7e7d6;
-	--to-6: #ff5800;
-	--to-7: #ff6d00;
-	--to-8: #ff8c00;
-	--to-9: #ffb356;
+	/* theme white */
+	--tbw-1: #ffffff;
+	--tbw-2: #eff1f3;
+	--tbw-3: #d1dce8;
+	--tbw-4: #989fb0;
+	--tbw-5: #151819;
+	--tbw-6: #faac63;
+	--tbw-7: #4cb462;
+	--tbw-8: #5362f8;
+	--tbw-9: #8560d3;
 
 	/* theme dark */
 	--ta-1: #151819;
@@ -344,4 +344,15 @@ vscode replace: --blue-$1 $2;
 	--tf-7: #fe8f38;
 	--tf-8: #8cc156;
 	--tf-9: #5ee9cf;
+
+	/* theme dark */
+	--to-1: #1e1e1d;
+	--to-2: #242423;
+	--to-3: #3a3939;
+	--to-4: #aeac92;
+	--to-5: #e7e7d6;
+	--to-6: #ff5800;
+	--to-7: #ff6d00;
+	--to-8: #ff8c00;
+	--to-9: #ffb356;
 }
