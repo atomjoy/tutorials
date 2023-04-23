@@ -346,6 +346,17 @@ vscode replace: --blue-$1 $2;
 	--tf-9: #5ee9cf;
 
 	/* theme dark */
+	--tg-1: #191a23;
+	--tg-2: #222531;
+	--tg-3: #2d2e37;
+	--tg-4: #afb0b4;
+	--tg-5: #ffffff;
+	--tg-6: #e84d36;
+	--tg-7: #f15c45;
+	--tg-8: #65a400;
+	--tg-9: #a2d84b;
+
+	/* theme dark */
 	--to-1: #1e1e1d;
 	--to-2: #242423;
 	--to-3: #3a3939;
