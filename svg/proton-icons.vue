@@ -12,6 +12,7 @@ How to use svg <def> <g>
 <use x="100" y="100" xlink:href="@/assets/Icon.svg#ic-arrow-down" />
 -->
 
+<template>
 <svg style="display: none">
 	<defs>
 		<g id="ic-alias">
@@ -1963,3 +1964,4 @@ How to use svg <def> <g>
 		</g>
 	</defs>
 </svg>
+</template>
