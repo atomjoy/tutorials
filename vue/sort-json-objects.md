@@ -1,7 +1,7 @@
-# Sortowanie json array z objektami 
-Sortowanie w javascript json z objektami (country phone codes)
+# Sortowanie json array z obiektami 
+Sortowanie w javascript json z obiektami (country phone codes)
 
-### Sortowanie tablicy objektów
+### Sortowanie tablicy obiektów
 ```js
 import prefix from '@/assets/json/country.json'
 
@@ -15,7 +15,7 @@ function compare(a, b) {
 	return 0
 }
 
-// Sortowanie objektów
+// Sortowanie obiektów
 const codes = prefix.sort(compare)
 ```
 
@@ -27,14 +27,14 @@ const codes = prefix.sort(compare)
 </select>
 ```
 
-### Sortowanie tablicy integer
+### Sortowanie tablicy z integer
 ```js
 import prefix from '@/assets/json/country.json'
 
 // Unikalna tablica prefixów
 const unique_prefix = [...new Set(prefix.map((item) => item.prefix))]
 
-// Sortuj prefixy
+// Sortowanie prefixów
 const codes = unique_prefix.sort((a, b) => parseInt(a) - parseInt(b))
 ```
 
