@@ -279,6 +279,17 @@ vscode replace: --blue-$1 $2;
 	--tbw-8: #5362f8;
 	--tbw-9: #8560d3;
 
+	/* theme white */
+	--tbw-1: #ffffff;
+	--tbw-2: #eaeaf3;
+	--tbw-3: #e6e7f0;
+	--tbw-4: #7e7e90;
+	--tbw-5: #272848;
+	--tbw-6: #faac63;
+	--tbw-7: #6dc8f9;
+	--tbw-8: #6d71f9;
+	--tbw-9: #8560d3;
+
 	/* theme dark */
 	--ta-1: #151819;
 	--ta-2: #1f2123;
