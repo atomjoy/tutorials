@@ -1,4 +1,5 @@
-# Sortowanie json array z objektami (country codes)
+# Sortowanie json array z objektami 
+Sortowanie w javascript json z objektami (country phone codes)
 
 ### Sortowanie tablicy objektów
 ```js
@@ -16,6 +17,14 @@ function compare(a, b) {
 
 // Sortowanie objektów
 const codes = prefix.sort(compare)
+```
+
+### Html select
+
+```vue
+<select name="prefix">
+	<option v-for="v of codes" value="v.prefix">{{ v.prefix }}</option>
+</select>
 ```
 
 ### Sortowanie tablicy integer
