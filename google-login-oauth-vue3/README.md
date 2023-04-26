@@ -222,7 +222,7 @@ export const getGoogleUrl = (from) => {
 ```json
 {
   clientId: "22026532.apps.googleusercontent.com",
-  client_id: "757722026532-0q0fmk45elkm7sum6mad5tmdutduk54t.apps.googleusercontent.com",
+  client_id: "22026532.apps.googleusercontent.com",
   credential: "fy0.p8QNTep8QhZwp8QNTep8QhZwp8QNTep8QhZw...",
   select_by: "user"
 }
