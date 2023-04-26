@@ -1,5 +1,7 @@
 # Google oauth login w Vue3
+Logowanie za pomocą google oauth na stronie www.
 
+## Konto google developer
 Utwórz konto na <https://cloud.google.com/>
 
 - utwórz aplikację
@@ -250,3 +252,10 @@ export const getGoogleUrl = (from) => {
   "typ": "JWT"
 }
 ```
+
+## Pakiet do automatycznego logowania dla vue (przykład bez backendu)
+<https://www.npmjs.com/package/vue3-google-login>
+
+- Trzeba przekierować jwt token na serwer
+- Pobrać odpowiedź z <https://oauth2.googleapis.com/tokeninfo?id_token=> zawirającą dane zalogowanego usera
+- Zalogować usera na backendzie i przekierować na stronę główną
