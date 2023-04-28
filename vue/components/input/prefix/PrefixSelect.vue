@@ -40,7 +40,7 @@ function compare(a, b) {
 <template>
 	<label>{{ props.label }}</label>
 	<select :name="props.name" class="remove-arrow" :class="class">
-		<option v-for="i of prefix" value="i" :selected="check(i)">{{ i.name }} {{ i.emoji }} +{{ i.prefix }}</option>
+		<option v-for="i of prefix" value="i.prefix" :selected="check(i)">{{ i.name }} {{ i.emoji }} +{{ i.prefix }}</option>
 	</select>
 </template>
 
