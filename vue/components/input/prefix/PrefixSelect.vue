@@ -1,5 +1,7 @@
 <!--
-  <PrefixSelect label="Prefix" :selected="48" name="prefix" />
+  const prefix_selected = ref(48)
+
+  <PrefixSelect label="Prefix code" v-model="prefix_selected" name="prefix" />
 -->
 
 <script setup>
@@ -8,16 +10,11 @@ import prefix from './json/country.json' // array with object [{prefix: "48"}, {
 const props = defineProps({
 	label: { type: String, default: 'Prefix code' },
 	name: { type: String, default: 'prefix', required: true },
-	selected: { type: Number, default: 48 },
 	class: String,
+	modelValue: Number,
 })
 
-function check(i) {
-	if (parseInt(i.prefix) == props.selected) {
-		return true
-	}
-	return false
-}
+const emits = defineEmits(['update:modelValue'])
 
 // Sort array of objects
 function compare(a, b) {
@@ -39,8 +36,8 @@ function compare(a, b) {
 
 <template>
 	<label>{{ props.label }}</label>
-	<select :name="props.name" class="remove-arrow" :class="class">
-		<option v-for="i of prefix" value="i.prefix" :selected="check(i)">{{ i.name }} {{ i.emoji }} +{{ i.prefix }}</option>
+	<select :name="props.name" class="remove-arrow" :class="class" :value="props.modelValue" @input="emits('update:modelValue', $event.target.value)">
+		<option v-for="o of prefix" :key="o.prefix" :value="o.prefix">{{ o.name }} {{ o.emoji }} +{{ o.prefix }}</option>
 	</select>
 </template>
 
