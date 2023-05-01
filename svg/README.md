@@ -11,5 +11,5 @@ How to use svg <def> <g> ivcons from proton-icons.vue
 	<use xlink:href="#mime-sm-attachments" transform="scale(1)" />
 </svg>
   
-<use x="100" y="100" xlink:href="@/assets/Icon.svg#ic-arrow-down" />
+<use x="100" y="100" xlink:href="@/assets/proton-icons.vue#ic-arrow-down" />
 ```
