@@ -47,6 +47,7 @@ $TTL 3600
 www                       IN A      11.22.33.44
 www                   600 IN TXT    "v=spf1 a mx include:mx.ovh.com -all"
 
+### Poniżej do usunięcia tylko zaśmieca 
 _autodiscover._tcp        IN SRV    0 0 443 mailconfig.ovh.net.
 _imaps._tcp               IN SRV    0 0 993 ssl0.ovh.net.
 _submission._tcp          IN SRV    0 0 465 ssl0.ovh.net.
