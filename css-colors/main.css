@@ -1,0 +1,17 @@
+@import './base.css';
+@import './colors.css';
+@import './theme.css';
+
+/* page style */
+
+:root {
+	/* button */
+	--button-bg: #0077ff;
+	--button-color: #ffffff;
+	--button-border: #0077ff;
+
+	/* button hover */
+	--button-bg-hover: #79db32;
+	--button-color-hover: #ffffff;
+	--button-border-hover: #79db32;
+}
