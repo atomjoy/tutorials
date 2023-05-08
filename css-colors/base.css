@@ -45,7 +45,7 @@
 }
 
 :root {
-	/* palette 60-30-10 */
+	color-scheme: light;
 	--bg-primary: #ffffff;
 	--bg-secondary: #f6f6f6;
 	--text-primary: #272848;
