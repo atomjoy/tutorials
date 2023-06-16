@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo" style="margin-top: 100px; width: 200px; height: 200px; background: #eee" onmouseover="mouseOver(event, this)" onmouseout="mouseOut()">Mouse over me</div>
+
+<script>
+// get div local cursor position
+function mouseOver(e, it) {
+  document.getElementById("demo").style.color = "red";
+  // 1
+  let x = e.clientX - it.offsetLeft;
+  let y = e.clientY - it.offsetTop;
+  // 2
+  var xx = e.pageX - it.offsetLeft;
+  var yy = e.pageY - it.offsetTop;
+  
+  console.log(x, y, xx, yy)
+}
+
+function mouseOut() {
+  document.getElementById("demo").style.color = "black";
+}
+</script>
+
+</body>
+</html>
