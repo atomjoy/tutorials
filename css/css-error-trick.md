@@ -5,7 +5,10 @@
 ```css
 :root {
 	--select-border: #f5f5f5;
+	--divider-primary: #e1e1e1;
+	--accent-primary: #09f;
 }
+```
 
 ## Wpychanie padingu do elementu
 
