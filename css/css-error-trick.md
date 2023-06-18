@@ -37,7 +37,7 @@
 
 .widget::before,
 .widget::after {
-	content: none;		
+	content: none;
 }
 
 .widget .box {
