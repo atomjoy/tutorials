@@ -17,9 +17,6 @@
 	box-sizing: border-box;	
 	text-decoration: none;
 	outline: 0px none transparent;
-	line-height: 1.1;
-	background-color: #fff;
-	background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
 }
 
 *::before,
@@ -79,6 +76,9 @@ select {
 	appearance: none;
 	background-color: transparent;
 	border: 1px solid var(--select-border);
+	line-height: 1.1;
+	background-color: #fff;
+	background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
 }
 
 select[multiple] option {
