@@ -114,3 +114,13 @@ form {
 	padding: 0px 30px;
 }
 ```
+
+## Code pre
+
+```css
+pre {
+	white-space: pre-wrap; 
+	word-break: keep-all;
+	/* word-wrap: break-word; */	
+}
+```
