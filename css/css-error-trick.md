@@ -3,12 +3,15 @@
 ## Wpychanie padingu do elementu
 
 ```css
-*,
+* {
+	box-sizing: border-box;	
+	text-decoration: none;
+	outline: 0px none transparent;
+}
+
 *::before,
 *::after {
-	box-sizing: border-box;
-	outline: 0px none transparent;
-	text-decoration: none;
+	content: '';
 }
 ```
 
@@ -44,9 +47,41 @@ img, svg {
 }
 ```
 
+## Linki
+
+```css
+a:hover,
+a:focus,
+a:active {
+	color: red;
+}
+```
+
 ## Scrollbar
 
 ```css
 .scrollbar {
   scrollbar-width: thin;
 }
+```
+
+
+## Formularz z marginesem górnym umieść w div
+
+```css
+.form-wrapper {
+	float: left;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	position: relative;
+}
+
+form {
+	width: 90%;
+	max-width: 640px;
+	margin: 50px auto;
+	padding: 0px 30px;
+}
+```
