@@ -1,5 +1,12 @@
 # Css
 
+### Root parametry
+
+```css
+:root {
+	--select-border: #f5f5f5;
+}
+
 ## Wpychanie padingu do elementu
 
 ```css
@@ -7,11 +14,15 @@
 	box-sizing: border-box;	
 	text-decoration: none;
 	outline: 0px none transparent;
+	line-height: 1.1;
+	background-color: #fff;
+	background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
 }
 
 *::before,
 *::after {
 	content: '';
+	box-sizing: border-box;
 }
 ```
 
@@ -54,6 +65,21 @@ a:hover,
 a:focus,
 a:active {
 	color: red;
+}
+```
+
+## Select arrow
+
+```css
+select {
+	outline: none;
+	appearance: none;
+	background-color: transparent;
+	border: 1px solid var(--select-border);
+}
+
+select[multiple] option {
+  white-space: normal;
 }
 ```
 
