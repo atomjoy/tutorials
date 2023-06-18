@@ -21,8 +21,28 @@
 
 *::before,
 *::after {
-	content: '';
-	box-sizing: border-box;
+	content: none;
+	/* Error in flex justify-content: space-between; if set to content: ''; */
+}
+```
+
+## Flex justify divs
+
+```css
+.widget {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+.widget::before,
+.widget::after {
+	content: none;		
+}
+
+.widget .box {
+	width: 25%;
+	align-items: center;
 }
 ```
 
