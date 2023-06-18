@@ -61,6 +61,10 @@ img, svg {
 ## Linki
 
 ```css
+a {
+	text-decoration: none;
+}
+
 a:hover,
 a:focus,
 a:active {
