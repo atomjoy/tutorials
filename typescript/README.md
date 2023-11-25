@@ -38,7 +38,13 @@ tsc
 npm run compile
 ```
 
-## Konfiguracja aplikacji ts
+## Tworzenie tsconfig.json
+
+```sh
+tsc --init
+```
+
+### Konfiguracja aplikacji ts
 
 Dodaj w pliku **tsconfig.json**
 
