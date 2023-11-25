@@ -4,7 +4,7 @@ Na początek instalujemy nodejs (będzie wtedy można używać npm)
 
 ## Instalacja typescript
 
-Uruchom z konsoli jako administrator i zainstaluj globalnie
+Uruchom z konsoli jako administrator i zainstaluj globalnie (zrestartuj terminal lub vscode)
 
 ```sh
 npm i -g typescript
