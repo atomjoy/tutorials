@@ -46,4 +46,6 @@ self.scrollable_label_button_frame = ScrollableLabelButtonFrame(
 
 ## Links
 
+- <https://github.com/TomSchimansky/CustomTkinter>
+- <https://customtkinter.tomschimansky.com/tutorial/scrollable-frames>
 - <https://www.youtube.com/watch?v=Envp9yHb2Ho>
