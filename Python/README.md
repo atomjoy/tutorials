@@ -1,10 +1,5 @@
-# Python3 tutorials
-
-- Do operacji na plikach, obrazkach i prostych aplikacji do konwertowania (może na windowsie lepiej)
-- Tkinter słabe te okienka jakieś prymitywne a CustomTkinter się nie chce instalować poludzku (brak scroll on mouse btn) 🤯
-- Chyba lepiej przekierować zainteresowania na C# WPF lub Unity3d i Unreal Engine 🙂
-- 10 lat minęło a tu się niewiele zmieniło poza numerkami wersji 😑
-- Ble ... i dotego firefox się ciągle wiesza na youtube ❗
+# Python3 
+Tutorials
 
 ## Install python3 and modules
 
@@ -75,3 +70,10 @@ def get_checked(self, attr="checked"):
     # Return array
     return ck
 ```
+
+## About
+
+- Tkinter słabe te okienka
+- Na windowsie CustomTkinter śmiga a na Debianie CustomTkinter się nie chce instalować poludzku 🤯
+- Do operacji na plikach, obrazkach i aplikacji do konwertowania
+- Chyba lepiej przekierować zainteresowania na WebDev, C# WPF lub Unity3d / Unreal Engine 🙂
