@@ -9,7 +9,7 @@ sudo apt install python3-pip python3-full python3-dev python3-tools -y
 sudo apt install python3-torch python3-torchvision -y
 ```
 
-## Install customtkinter
+## Debian 12 Install CustomTkinter
 
 Dziwacznie, się nie instaluje trzeba cudować ... Debian 12
 
@@ -32,19 +32,19 @@ source tutorial-venv/bin/activate
 pip3 install customtkinter
 pip3 install Pillow
 
-# Run script
-python3 ~/tutorial-venv/main.py
-
-# Add modules
-sudo ~tutorial-venv/bin/pip3 install Pillow
+# Or install
+sudo ~/tutorial-venv/bin/pip3 install Pillow
 sudo ~/tutorial-venv/bin/pip3 install customtkinter
 sudo ~/tutorial-venv/bin/pip3 install darkdetect
+
+# Run script
+python3 ~/tutorial-venv/main.py
 
 # Deactivate virtual env
 deactivate
 ```
 
-## Exxamples
+## Examples
 
 ### List Comprehension
 - https://docs.python.org/3/tutorial/datastructures.html
