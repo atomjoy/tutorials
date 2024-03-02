@@ -1,5 +1,5 @@
 # Python3 
-Tutorials
+Python tutorials CustomTkinter, Tkinter ...
 
 ## Install python3 and modules
 
@@ -14,28 +14,36 @@ sudo apt install python3-torch python3-torchvision -y
 Dziwacznie, się nie instaluje trzeba cudować ... Debian 12
 
 ```sh
+# Install
+sudo apt install python3-full python3-pip
+
 # Check Debian 12
 sudo which python3
 sudo python3 --version
 sudo pip3 --version
-sudo pipx --version
 
-# Virtual env python3 Debian 12 with python3-full python3-pip
+# Create virtual env python3 Debian 12 
 sudo python3 -m venv ~/tutorial-venv
-# Add
-sudo ~/venv/bin/pip3 install Pillow
-sudo ~/venv/bin/pip3 install darkdetect
-sudo ~/venv/bin/pip3 install customtkinter
 
 # Run virtual env
 source tutorial-venv/bin/activate
 
+# Run install
+pip3 install customtkinter
+pip3 install Pillow
+
 # Run script
 python3 ~/tutorial-venv/main.py
+
+# Add modules
+sudo ~tutorial-venv/bin/pip3 install Pillow
+sudo ~/tutorial-venv/bin/pip3 install customtkinter
+sudo ~/tutorial-venv/bin/pip3 install darkdetect
 
 # Deactivate virtual env
 deactivate
 ```
+
 ## Exxamples
 
 ### List Comprehension
@@ -69,6 +77,18 @@ def get_checked(self, attr="checked"):
     
     # Return array
     return ck
+```
+
+### Virtual env .profil
+
+```sh
+if [ ! -x ~/.venv ]; then
+  echo
+  echo "Creating Python 'venv' virtual environment"
+  python -m venv --system-site-packages ~/.venv
+fi
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+source ~/.venv/bin/activate
 ```
 
 ## About
