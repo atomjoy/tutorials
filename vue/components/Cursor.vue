@@ -2,10 +2,16 @@
     <div class="cursor-change">Change cursor style to white</div>
  -->
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { onMounted, nextTick } from 'vue'
 
 const updateCursor = (event) => {
-	document.querySelectorAll('.cursor').forEach(async (el) => {
+	document.querySelectorAll('.cursor-small').forEach(async (el) => {
+		el.style.top = event.pageY + 'px'
+		el.style.left = event.pageX + 'px'
+	})
+
+	document.querySelectorAll('.cursor-border').forEach(async (el) => {
+		await new Promise((r) => setTimeout(r, 50))
 		await nextTick(() => {
 			el.style.top = event.pageY + 'px'
 			el.style.left = event.pageX + 'px'
@@ -46,10 +52,6 @@ onMounted(() => {
 </template>
 
 <style>
-:root {
-  --cursor-b: #222
-  --cursor-w: #fff
-}
 .cursor {
 	z-index: 100;
 	box-sizing: border-box;
@@ -60,7 +62,7 @@ onMounted(() => {
 	width: 10px;
 	height: 10px;
 	padding: 5px;
-	background: var(--cursor-b);
+	background: var(--c3);
 	transform: translate(-50%, -50%);
 	pointer-events: none;
 	backface-visibility: hidden;
@@ -68,19 +70,19 @@ onMounted(() => {
 }
 .cursor-border {
 	padding: 10px;
-	border: 2px solid var(--cursor-b);
+	border: 2px solid var(--c3);
 	background: transparent;
 	box-sizing: border-box;
-	transition: all 0.11s;
+	/* transition: all 0.11s; */
 }
 .cursor-mix-change {
 	border-width: 2px;
-	background: var(--cursor-w);
+	background: #fff;
 	transform: translate(-50%, -50%) scale(1.3);
 	filter: blur(0px);
 }
 .cursor-mix-change-border {
-	border-color: var(--cursor-w);
+	border-color: #fff;
 	transform: translate(-50%, -50%) scale(1.3);
 	filter: blur(0px);
 }
