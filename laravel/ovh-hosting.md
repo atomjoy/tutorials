@@ -24,3 +24,33 @@ Jeżeli sa dodane w pliku .env, .env.production lub zmień na DB_CONNECTION=sqli
 
 ## Zmień w .env, .env.production ustawienia sesji gdy nie ma bazy danych
 SESSION_DRIVER=file
+
+
+## Dodaj .htaccess w laravel root dir
+
+Zabezpiecz pliki .env i blokuj wyświetlanie w przeglądarce katalogu głownego (nie twórz pliku error.php)
+
+```htaccess
+SetEnv PHP_VER 8_2
+SetEnv REGISTER_GLOBALS 0
+
+DirectoryIndex index.php
+Options -Indexes -MultiViews +FollowSymlinks +SymLinksIfOwnerMatch
+
+# Disable directory browsing
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^public
+RewriteRule ^(.*)$ error.php [L]
+# RewriteRule ^(.*)$ public/$1 [L]
+
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# RewriteEngine On
+# RewriteCond %{HTTP_HOST} ^domain.com$ [NC,OR]
+# RewriteCond %{HTTP_HOST} ^www.domain.com$
+# RewriteCond %{REQUEST_URI} !public/
+# RewriteRule (.*) /public/$1 [L]
+```
