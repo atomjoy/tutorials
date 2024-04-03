@@ -9,7 +9,9 @@ Jak dodać aplikację laravel na hostingu w ovh.
 - Suport nie najlepszy zwłaszcza ten francuski.
 - Coś pogmatwali z jakimiś kodami recovery (nie używać) jak zgubisz to się z suportem nie dogadasz bo będą głupczyć.
 - No i ten zamulony panel administracyjny.
-- Na plus klucze ssh do vps w panelu podczas reinstalacji i SSL lets encrypt za free w hostingu.
+- Na plus klucze ssh do vps w panelu podczas reinstalacji oraz SSL lets encrypt za free w hostingu i niedroge odnowienia domen.
+- W sumie to nazwa jest nie taka zła na hosting tylko trzeba ręcznie Letsencrypt instalować a vps się dziwacznie instaluje i nie można w panelu dodać klucza ssh do vps.
+- No i te upierdliwe telefony z promocjami co chwila w nazwa (Hosting dość drogi w drugim roku i za domeny kasują strasznie dużo w drugim roku) domeny lepiej kupić w ovh.
 
 ## Linki symboliczne w laravel
 php artisan storage:link
