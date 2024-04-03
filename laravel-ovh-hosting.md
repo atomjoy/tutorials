@@ -20,7 +20,7 @@ www/project-name
 Wygeneruj certufikaty ssl dla domeny w panelu (czasami domena nie dodaje się odrazu do certfikatu)
 
 ## Pamiętaj o utworzeniu baz danych mysql
-Jeżeli sa dodane w pliku .env, .env.production
+Jeżeli sa dodane w pliku .env, .env.production lub zmień na DB_CONNECTION=sqlite
 
 ## Zmień w .env, .env.production ustawienia sesji gdy nie ma bazy danych
 SESSION_DRIVER=file
