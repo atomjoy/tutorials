@@ -1,12 +1,15 @@
 # Hosting ovh Laravel 11
 Jak dodać aplikację laravel na hostingu w ovh.
 
-### Hmmm
-- Oszukują na hostingu gdy przy pakiecie Starter nie dodasz domeny to licza po 111.94 za hosting z jedną domeną i nie można dodawać więcej subdomen poza tą z www!!! 
-- Lepiej zamówić ten droższy pakiet Perso z 5 domenami (jak już).
-- Suport nie najlepszy zwłaszcza ten francuski.
-- Czasami oszukuja na terminach za domeny pod koniec okresu i kasuja podwójnie udając że nie zaksięgowali wpłaty na czas (Każa dopłacać jak wpłata już poszła).
+### Pamiętaj
+- Na hostingu gdy przy pakiecie Starter nie dodasz domeny to licza po 111.94 za hosting z jedną domeną i nie można dodawać więcej subdomen poza tą z www. 
+- Jak już to zamówić ten droższy pakiet Perso z 5 domenami (129,74).
+- Czasami oszukuja na terminach za domeny pod koniec okresu i kasuja podwójnie udając że nie zaksięgowali wpłaty na czas (Każa dopłacać jak wpłata już poszła że niby zwrócą a poźniej doliczają opłate za wznowienie).
 - Jak już wpłacisz kasę to nie sposób nic od nich odzyskać w ramach zwrotu czy rezygnacji.
+- Suport nie najlepszy zwłaszcza ten francuski.
+- Coś pogmatwali z jakimiś kodami recovery (nie używać) jak zgubisz to się z suportem nie dogadasz bo będą głupczyć.
+- No i ten zamulony panel administracyjny.
+- Na plus klucze ssh do vps w panelu podczas reinstalacji i SSL lets encrypt za free w hostingu.
 
 ## Linki symboliczne w laravel
 php artisan storage:link
