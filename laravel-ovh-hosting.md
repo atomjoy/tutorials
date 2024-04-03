@@ -6,6 +6,7 @@ Jak dodać aplikację laravel na hostingu w ovh.
 - Lepiej zamówić ten droższy pakiet Perso z 5 domenami (jak już).
 - Suport nie najlepszy zwłaszcza ten francuski.
 - Czasami oszukuja na terminach za domeny pod koniec okresu i kasuja podwójnie udając że nie zaksięgowali wpłaty na czas (Każa dopłacać jak wpłata już poszła).
+- Jak już wpłacisz kasę to nie sposób nic od nich odzyskać w ramach zwrotu czy rezygnacji.
 
 ## Linki symboliczne w laravel
 php artisan storage:link
