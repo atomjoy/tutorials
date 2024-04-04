@@ -44,13 +44,15 @@ SESSION_DRIVER=file
 Zabezpiecz pliki .env i blokuj wyświetlanie w przeglądarce katalogu głownego (nie twórz pliku error.php)
 
 ```htaccess
+# Block Laravel showing files from hosting root domain and allow from php scripts
+
 SetEnv PHP_VER 8_2
 SetEnv REGISTER_GLOBALS 0
 
 DirectoryIndex index.php
 Options -Indexes -MultiViews +FollowSymlinks +SymLinksIfOwnerMatch
 
-# Disable directory browsing
+# Disable directory browsing (don't create error.php)
 RewriteEngine on
 RewriteCond %{REQUEST_URI} !^public
 RewriteRule ^(.*)$ error.php [L]
@@ -66,4 +68,43 @@ RewriteRule ^(.*)$ error.php [L]
 # RewriteCond %{HTTP_HOST} ^www.domain.com$
 # RewriteCond %{REQUEST_URI} !public/
 # RewriteRule (.*) /public/$1 [L]
+```
+
+## Laravel public
+
+```htaccess
+# Laravel app www to non-www redirect to ssl
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    DirectoryIndex index.php
+
+    RewriteEngine On
+    RewriteBase /
+
+    # Www to non-www
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+    # Http to https
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
 ```
