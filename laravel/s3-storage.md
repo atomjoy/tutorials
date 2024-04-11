@@ -106,7 +106,7 @@ return [
 ];
 ```
 
-## Upload images
+## Upload, show images
 
 Get url https://your-bucket-name.s3.amazonaws.com/profile-photos/hero.png
 
@@ -148,10 +148,13 @@ Route::post('files', function(){
     $contents = Storage::disk('s3')->get('path/to/file.ext');
     Storage::disk('s3')->put('path/to/file.ext', 'some-content');
 
-    # If you set S3 as your default .env:
-    # FILESYSTEM_DISK=s3
+    # If you set S3 as your default .env: FILESYSTEM_DISK=s3
     $contents = Storage::get('path/to/file.ext');
-    Storage::put('path/to/file.ext', 'some-content');    
+    Storage::put('path/to/file.ext', 'some-content');
+
+	# Get url or response
+	return Storage::url($path);
+    return Storage::response($path);    
 });
 ```
 
@@ -163,4 +166,18 @@ Route::post('files', function(){
 $path = storage_path() . '/books/images/' . '21.png'
 $contents = Storage::get($path);
 Storage::disk('s3')->put('books/21.png', $contents);
+```
+
+## Overwrite s3 disk to storge (in service)
+
+```php
+<?php
+
+config("filesystems.disks.s3" => [
+	'driver' => 'local',
+	'root' => storage_path('app/public'),
+	'url' => env('APP_URL') . '/storage',
+	'visibility' => 'public',
+	'throw' => false,
+]);
 ```
