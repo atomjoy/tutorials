@@ -116,7 +116,7 @@ Get url https://your-bucket-name.s3.amazonaws.com/profile-photos/hero.png
 Route::get('profile-photos', function($path){
     $disk = 'profile-photos';
 
-    if (Storage::disk('s3')->exists($path)) {
+    if (Storage::disk($disk)->exists($path)) {
         # Image url
         return Storage::disk($disk)->url($path);
   
