@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEM Sample</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .section {
+            display: block;
+            float: left;
+            width: 100%;
+            height: auto;
+            border: 1px solid #000;
+        }
+        .header {
+            display: block;
+            float: left;
+            width: 100%;
+            height: auto;
+        }
+        .article {
+            display: block;
+            float: left;
+            width: 100%;
+            height: auto;
+            border: 1px solid #09f;
+        }
+        .content, .author, .text {
+            display: block;
+            float: left;
+            width: 100%;
+            height: auto;
+            border: 1px solid #5c5;
+        }
+        .comments {
+            display: block;
+            float: left;
+            width: 100%;
+            height: auto;
+            border: 1px solid #f20;
+        }
+        .comment {
+            display: block;
+            float: left;
+            width: 100%;
+            height: auto;
+            border: 1px solid #000;
+        }
+
+        .category {
+            display: inline-block;
+        }
+
+        .section__article {
+            padding: 20px;
+        }
+        
+        .article__category {
+            color: #fff;
+            background: #f50;
+            font-size: 14px;
+            padding: 5px 20px;
+            text-transform: uppercase;
+            margin: 5px 0px;
+            margin-left: 20px;
+        }
+
+        .article__title {
+            font-size: 30px;
+            padding: 5px 20px;
+            margin: 5px 0px;
+        }
+
+        .article__content {
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .article__author {
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .article__comments {
+            padding: 20px;
+        }
+
+        .article__comment {
+            padding: 20px;
+        }
+
+        .author__image {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+        }
+
+        .author__details {
+            padding-left: 20px;
+        }
+
+        .user__image {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+        }
+
+        .comment__text {
+            font-size: 15px;        
+            letter-spacing: .6px;    
+            padding: 20px;
+            padding-left: 100px;
+            background: #f7f7f7;
+        }
+
+        .comment__author {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .author__name {
+            color: #656c7a;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        .author__date {  
+            color: #494e58;
+            font-size: 13px;            
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <!-- "header" block --> 
+        <header class="header"> 
+            <div class="logo header__logo"><img src="https://maxst.icons8.com/vue-static/icon/menu/logo.svg"></div> 
+            
+            <div class="search header__search">
+                <input class="input search__input" type="text" name="search">
+                <button class="button search__button">Search</button>
+            </div>
+
+            <div class="user header__user">
+                <img class="user__image" src="https://picsum.photos/200">
+                <div class="user__name">Name Surname</div>
+            </div>
+        </header> 
+    
+        <article class="article section__article">
+
+            <h1 class="category article__category">Nauka</h1>
+            <h1 class="title article__title">Ten projekt miał zostać porzucony, NASA jednak chce lecieć na Księżyc. </h1>
+            <div class="content article__content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dignissimos recusandae quisquam illo deleniti, error fugit cum aperiam nesciunt facilis libero id a assumenda perferendis cumque iste itaque dolore dolorem.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dolorum at harum natus, ad ipsam aspernatur amet, consequatur aut a molestias, nulla rem earum laudantium voluptate fuga saepe tempora libero.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla temporibus quam tenetur suscipit earum similique odio qui culpa pariatur, sed ut eligendi, id eum natus hic aspernatur error amet? Similique? Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dignissimos recusandae quisquam illo deleniti, error fugit cum aperiam nesciunt facilis libero id a assumenda perferendis cumque iste itaque dolore dolorem.</p>
+            </div>
+            
+            <div class="author article__author">      
+                <img class="author__image" src="https://picsum.photos/200">
+                <div class="author__details">
+                    <div class="author__name">Name Surname</div>
+                    <div class="author__date">8 maja 2024 17:00</div>
+                </div>
+            </div>
+
+            <div class="comments article__comments">
+                <h2 class="comments__title">Comments</h2>
+
+                <div class="comment article__comment">
+                    <div class="author comment__author">
+                        <img class="author__image author__image--small" src="https://picsum.photos/200">
+                        <div class="author__details">
+                            <div class="author__name author__name--small">Name Surname</div>
+                            <div class="author__date">11 maja 2024 19:20</div>
+                        </div>
+                    </div>
+                    <div class="text comment__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quisquam incidunt pariatur sed sunt illo atque doloremque molestiae odit repudiandae iste, commodi numquam, reprehenderit blanditiis officia. Ipsa in corrupti nesciunt.</div>
+                </div>
+
+                <div class="comment article__comment">
+                    <div class="author comment__author">
+                        <img class="author__image author__image--small" src="https://picsum.photos/200">
+                        <div class="author__details">
+                            <div class="author__name author__name--small">Name Surname</div>
+                            <div class="author__date">18 maja 2024 12:10</div>
+                        </div>
+                    </div>                
+                    <div class="text comment__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, libero commodi. Incidunt possimus omnis, hic totam facilis magnam consequatur molestias corrupti vel saepe aliquam, officiis minima fugit obcaecati accusantium exercitationem!</div>
+                </div>
+            </div>
+        </article>
+    </section>
+</body>
+</html>
