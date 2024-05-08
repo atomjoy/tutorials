@@ -2,6 +2,10 @@
 
 - Części bloku łączyć znakiem "-" (np: .block-snake-tail).
 - Element nie powinien mieć swojego elementu.
+- Do elementu można dodać blok.
+- Nie powinno się nadawać klas w stylu .menu__list__item czyli .blok__element__element.
+- Nie należy używać identyfikatorów elementów (np. #menu) ani nazw elementów (np. nav)
+- Nie należy używać selektorów potomków (np. .menu .menu__link), nie dotyczy modyfikatorów bloków (np. menu__link-–active .menu__img)
 
 ## Blok, element, modyfikator
 
@@ -64,7 +68,7 @@ Prosty przykład bloku w bloku.
 
 ### Przykład 2
 
-Blok umieszczony w bloku dla wielu komponentów (zamień słowo "box" na "box-25").
+Blok umieszczony w bloku dla wielu komponentów (zamień słowo "box" na "list-box-25").
 
 ```html
 <section class="box">
@@ -89,6 +93,44 @@ Blok umieszczony w bloku dla wielu komponentów (zamień słowo "box" na "box-25
             <div class="box-comment__text"></div>
         </div>
     </div>
+</section>
+```
+
+```html
+<section class="section">
+    <header class="header section__header">
+        <h1 class="header__title header__title--light">Title</h1>
+    </header>
+
+    <article class="article section__article">
+      <div class="author article__author">      
+        <img class="author__image" src="user.png">
+        <div class="author__name">Name Surname</div>
+      </div>
+
+      <h1 class="article__title">Article title</h1>
+      <div class="article__content">Article content goes here ...</div>
+
+      <div class="comments article__comments">
+        <h2 class="comments__title">Comments</h2>
+
+        <div class="comment article__comment">
+            <div class="comment__text"></div>
+            <div class="author comment__author">
+              <img class="author__image author__image--small" src="user.png">
+              <div class="author__name author__name--small">Name Surname</div>
+            </div>
+        </div>
+
+        <div class="comment article__comment">
+            <div class="comment__text"></div>
+            <div class="author comment__author">
+              <img class="author__image author__image--small" src="user.png">
+              <div class="author__name author__name--small">Name Surname</div>
+            </div>
+        </div>
+      </div>
+    </article>
 </section>
 ```
 
