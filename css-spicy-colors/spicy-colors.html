@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Blue</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+    * {
+        font-family: 'Poppins';
+        box-sizing: border-box;
+    }
+
+    h1 {
+        float: left;
+        width: 100%;
+    }
+
+    .full {
+        float: left;
+        width: 100%;
+        padding: 30px;
+        font-size: 25px;
+    }
+
+    .list {
+        float: left;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        align-content: stretch;
+        justify-content: space-between;
+        gap: 20px;
+
+    }
+
+    .color {
+        font-family: 'Poppins';
+        float: left;
+        width: 30%;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        box-shadow: 0px 1px 5px #0001;
+        border-radius: 50px;
+        overflow: hidden;
+    }
+
+    .color .bg {
+        float: left;
+        width: 100%;
+        height: 150px;
+        padding: 25px;
+        padding-bottom: 60px;
+        box-sizing: border-box;
+    }
+
+    .color .hex {
+        color: #fafafa;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .color .dark {
+        color: #0b3558;
+    }
+
+    .color .status {
+        color: #0552bb;
+    }
+
+    body {
+        padding: 40px;
+    }
+
+    p {
+        margin-top: 0px;
+    }
+</style>
+
+<body>
+    <h1>Layout</h1>
+
+    <p class="full">
+        Center: 1280x78px padding-inline 40px margin-inline auto <br>
+        Menu logo: 160x40px <br>
+        Menu link: 100x34px padding 4x8px margin-inline 12px <br>
+        Menu button: 110x42px padding 10x16px <br>
+    </p>
+
+    <h1>Storm Blue</h1>
+
+    <div class="list">
+
+        <div class="color">
+            <div class="bg" style="background: #0552bb;">
+                <div class="hex">#0552bb</div>
+                <div class="hex">Btn 1</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #145cc0;">
+                <div class="hex">#145cc0</div>
+                <div class="hex">Btn 2</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #006bff;">
+                <div class="hex">#006bff</div>
+                <div class="hex">Btn 3</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #0267fb;">
+                <div class="hex">#0267fb</div>
+                <div class="hex">Btn 4</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #f8f9fb;">
+                <div class="hex dark">#f8f9fb</div>
+                <div class="hex dark">Button Cancel</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #e6f0ff;">
+                <div class="hex status">#e6f0ff</div>
+                <div class="hex status">Button Status</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #a8afbd;">
+                <div class="hex">#a8afbd</div>
+                <div class="hex">Icon</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #f7f6f9;">
+                <div class="hex dark">#f7f6f9</div>
+                <div class="hex dark">Scrollbar</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #0b3558;">
+                <div class="hex">#0b3558</div>
+                <div class="hex">Text</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #547290;">
+                <div class="hex">#547290</div>
+                <div class="hex">Text</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #5e7a96;">
+                <div class="hex">#5e7a96</div>
+                <div class="hex">Text</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #aab8bc;">
+                <div class="hex">#aab8bc</div>
+                <div class="hex">Text</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #e5e5e5;">
+                <div class="hex">#e5e5e5</div>
+                <div class="hex">Divider</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #b7c8da;">
+                <div class="hex">#b7c8da</div>
+                <div class="hex">Border input</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #dddddd;">
+                <div class="hex">#dddddd</div>
+                <div class="hex">Border input</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #F4F7FF;">
+                <div class="hex dark">#f4f7ff</div>
+                <div class="hex dark">Bg input</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #ABACB2;">
+                <div class="hex">#abacb2</div>
+                <div class="hex">Placeholder input</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #7e818b;">
+                <div class="hex">#7e818b</div>
+                <div class="hex">Icon input</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #edf1f8;">
+                <div class="hex dark">#edf1f8</div>
+                <div class="hex dark">Border menu</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #DDE3EC;">
+                <div class="hex dark">#dde3ec</div>
+                <div class="hex dark">Border menu</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #f2f2f2;">
+                <div class="hex dark">#f2f2f2</div>
+                <div class="hex dark">Gray</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #E5F0FF;">
+                <div class="hex dark">#e5f0ff</div>
+                <div class="hex dark">Bg blue</div>
+            </div>
+        </div>
+
+        <div class="color" style="visibility: hidden;"></div>
+
+        <h1>Black White</h1>
+
+        <div class="color">
+            <div class="bg" style="background: #258C60;">
+                <div class="hex">#258C60</div>
+                <div class="hex">Green</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #fd6e41;">
+                <div class="hex">#fd6e41</div>
+                <div class="hex">Orange</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #0f0f0f;">
+                <div class="hex">#0f0f0f</div>
+                <div class="hex">Black</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #1a1a1a;">
+                <div class="hex">#1a1a1a</div>
+                <div class="hex">Bg 1</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #1f1f1f;">
+                <div class="hex">#1f1f1f</div>
+                <div class="hex">Bg 2</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #2f2f2f;">
+                <div class="hex">#2f2f2f</div>
+                <div class="hex">Bg 3</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #fefefe;">
+                <div class="hex dark">#fefefe</div>
+                <div class="hex dark">Bg 1</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #fbfbfb;">
+                <div class="hex dark">#fbfbfb</div>
+                <div class="hex dark">Bg 2</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #faf8f2;">
+                <div class="hex dark">#faf8f2</div>
+                <div class="hex dark">Bg 3</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #414141;">
+                <div class="hex">#414141</div>
+                <div class="hex">Border input</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #343434;">
+                <div class="hex">#343434</div>
+                <div class="hex">Divider</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #252525;">
+                <div class="hex">#252525</div>
+                <div class="hex">Scroll</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #3a3a3a;">
+                <div class="hex">#3a3a3a</div>
+                <div class="hex">Scroll thumb</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #d9d9d9;">
+                <div class="hex">#d9d9d9</div>
+                <div class="hex">Border input</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #eeeeee;">
+                <div class="hex dark">#eeeeee</div>
+                <div class="hex dark">Divider</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #f5f5fb;">
+                <div class="hex dark">#f5f5fb</div>
+                <div class="hex dark">Scroll</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #dcdcdc;">
+                <div class="hex">#dcdcdc</div>
+                <div class="hex">Scroll thumb</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #2f2f2f;">
+                <div class="hex">#2f2f2f</div>
+                <div class="hex">ToolTip</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #F7F4F0;">
+                <div class="hex dark">#f7f4f0</div>
+                <div class="hex dark">ToolTip</div>
+            </div>
+        </div>
+
+        <div class="color" style="visibility: hidden;"></div>
+
+        <h1>Dark green</h1>
+
+        <div class="color">
+            <div class="bg" style="background: #101411;">
+                <div class="hex">#101411</div>
+                <div class="hex">Bg green</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #202622;">
+                <div class="hex">#202622</div>
+                <div class="hex">Border green</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #8b9f92;">
+                <div class="hex">#909692</div>
+                <div class="hex">Gray green</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #118834;">
+                <div class="hex">#118834</div>
+                <div class="hex">Green</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #238636;">
+                <div class="hex">#238636</div>
+                <div class="hex">Green</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #5fed83;">
+                <div class="hex">#5fed83</div>
+                <div class="hex">Green</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #009a00;">
+                <div class="hex">#009a00</div>
+                <div class="hex">Green</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #fd6e41;">
+                <div class="hex">#fd6e41</div>
+                <div class="hex">Orange</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #d53131;">
+                <div class="hex">#d53131</div>
+                <div class="hex">Red</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #d70064;">
+                <div class="hex">#003349</div>
+                <div class="hex">Pink</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #5253ff;">
+                <div class="hex">#5253ff</div>
+                <div class="hex">Fiolet</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #003349;">
+                <div class="hex">#003349</div>
+                <div class="hex">Navy</div>
+            </div>
+        </div>
+
+        <div class="color" style="visibility: hidden;"></div>
+
+        <h1>BW Mini</h1>
+
+        <div class="color">
+            <div class="bg" style="background: #fe9000;">
+                <div class="hex">#a8fe00</div>
+                <div class="hex">Btn 1</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #a8fe00;">
+                <div class="hex">#a8fe00</div>
+                <div class="hex">Btn 2</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #181818;">
+                <div class="hex">#181818</div>
+                <div class="hex">Bg</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #282828;">
+                <div class="hex">#282828</div>
+                <div class="hex">Bg</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #1d1d1d;">
+                <div class="hex">#1d1d1d</div>
+                <div class="hex">Bg</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #272729;">
+                <div class="hex">#272729</div>
+                <div class="hex">Border</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #2f2f2f;">
+                <div class="hex">#2f2f2f</div>
+                <div class="hex">Divider</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #fefefe;">
+                <div class="hex dark">#fefefe</div>
+                <div class="hex dark">Text</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #a5a5a5;">
+                <div class="hex">#a5a5a5</div>
+                <div class="hex">Text</div>
+            </div>
+        </div>
+
+        <div class="color" style="visibility: hidden;"></div>
+
+        <h1>Doctor Brown</h1>
+
+        <div class="color">
+            <div class="bg" style="background: #fd6e41;">
+                <div class="hex">#fd6e41</div>
+                <div class="hex">Orange</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #30292C;">
+                <div class="hex">#30292C</div>
+                <div class="hex">Bg</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #3B3538;">
+                <div class="hex">#3B3538</div>
+                <div class="hex">Bg 1</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #3B3538;">
+                <div class="hex">#3B3538</div>
+                <div class="hex">Button</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #524B4E;">
+                <div class="hex">#524B4E</div>
+                <div class="hex">Nav</div>
+            </div>
+        </div>
+
+        <div class="color" style="visibility: hidden;"></div>
+
+        <h1>Fx Green</h1>
+
+        <div class="color">
+            <div class="bg" style="background: #f0f424;">
+                <div class="hex dark">#f0f424</div>
+                <div class="hex dark">Neon</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #bbff65;">
+                <div class="hex dark">#bbff65</div>
+                <div class="hex dark">Lime</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #011314;">
+                <div class="hex">#011314</div>
+                <div class="hex">Bg 1</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #03191B;">
+                <div class="hex">#03191B</div>
+                <div class="hex">Bg 2</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #1B2B2C;">
+                <div class="hex">#1B2B2C</div>
+                <div class="hex">Bg 3</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #1F3433;">
+                <div class="hex">#1F3433</div>
+                <div class="hex">Button</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #152929;">
+                <div class="hex">#152929</div>
+                <div class="hex">Nav</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #263B3A;">
+                <div class="hex">#263B3A</div>
+                <div class="hex">Bg input</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #516666;">
+                <div class="hex">#516666</div>
+                <div class="hex">ToolTip</div>
+            </div>
+        </div>
+
+        <div class="color" style="visibility: hidden;"></div>
+
+        <h1>Zorin</h1>
+
+        <div class="color">
+            <div class="bg" style="background: #079ae0;">
+                <div class="hex">#079ae0</div>
+                <div class="hex">Btn 1 grad</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #1cb4ed;">
+                <div class="hex">#1cb4ed</div>
+                <div class="hex">Btn 2 grad</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #f5f7fa;">
+                <div class="hex dark">#f5f7fa</div>
+                <div class="hex dark">Bg</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #123354;">
+                <div class="hex">#123354</div>
+                <div class="hex">Text 1</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #8294a6;">
+                <div class="hex">#8294a6</div>
+                <div class="hex">Text 2</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #f8e3d4;">
+                <div class="hex">#f8e3d4</div>
+                <div class="hex">Mate 1</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #472d1a;">
+                <div class="hex">#472d1a</div>
+                <div class="hex">Mate 1 text</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #ede0ef;">
+                <div class="hex">#ede0ef</div>
+                <div class="hex">Mate 2</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #3f1948;">
+                <div class="hex">#3f1948</div>
+                <div class="hex">Mate 2 text</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #d4edf8;">
+                <div class="hex">#d4edf8</div>
+                <div class="hex">Mate 3</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #193b48;">
+                <div class="hex">#193b48</div>
+                <div class="hex">Mate 3 text</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #e0efe3;">
+                <div class="hex">#e0efe3</div>
+                <div class="hex">Mate 4</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #194820;">
+                <div class="hex">#194820</div>
+                <div class="hex">Mate 4 text</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #dee2f7;">
+                <div class="hex">#dee2f7</div>
+                <div class="hex">Mate 5</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #191e48;">
+                <div class="hex">#191e48</div>
+                <div class="hex">Mate 5 text</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #efd7e1;">
+                <div class="hex">#efd7e1</div>
+                <div class="hex">Mate 6</div>
+            </div>
+        </div>
+
+        <div class="color">
+            <div class="bg" style="background: #48192d;">
+                <div class="hex">#48192d</div>
+                <div class="hex">Mate 6 text</div>
+            </div>
+        </div>
+
+        <div class="color" style="visibility: hidden;"></div>
+
+    </div>
+</body>
+
+</html>
